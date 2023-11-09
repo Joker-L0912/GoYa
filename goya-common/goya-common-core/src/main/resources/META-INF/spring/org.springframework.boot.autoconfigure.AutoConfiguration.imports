@@ -1,0 +1,2 @@
+com.goya.core.handler.GlobalResponseHandler
+com.goya.core.handler.RestExceptionHandler

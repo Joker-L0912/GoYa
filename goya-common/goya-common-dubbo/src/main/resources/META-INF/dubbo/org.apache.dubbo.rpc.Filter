@@ -1,0 +1,1 @@
+dubboRequestFilter=com.goya.dubbo.filter.DubboRequestFilter

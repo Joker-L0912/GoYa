@@ -1,0 +1,866 @@
+2023-11-09 18:15:56.382 DEBUG --- [kground-preinit] o.j.logging                    : Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2023-11-09 18:15:56.755 INFO  --- [  restartedMain] o.a.d.s.b.c.e.WelcomeLogoApplicationListener :  [DUBBO] 
+
+ :: Dubbo (v3.2.2) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:56.855 INFO  --- [  restartedMain] c.g.i.s.GoyaIssueServiceApplication : Starting GoyaIssueServiceApplication using Java 17.0.5 with PID 11372 (D:\demo\GoYa\GoYa\goya-issue\goya-issue-service\target\classes started by 86152 in D:\demo\GoYa\GoYa)
+2023-11-09 18:15:56.858 DEBUG --- [  restartedMain] c.g.i.s.GoyaIssueServiceApplication : Running with Spring Boot v3.0.12, Spring v6.0.13
+2023-11-09 18:15:56.859 INFO  --- [  restartedMain] c.g.i.s.GoyaIssueServiceApplication : The following 1 profile is active: "dev"
+2023-11-09 18:15:56.919 INFO  --- [  restartedMain] c.a.c.n.c.NacosConfigDataLoader : [Nacos Config] Load config[dataId=application-dev.yml, group=DEFAULT_GROUP] success
+2023-11-09 18:15:56.919 DEBUG --- [  restartedMain] c.a.c.n.c.NacosConfigDataLoader : [Nacos Config] config[dataId=application-dev.yml, group=DEFAULT_GROUP] content: 
+spring:
+  datasource:
+    url: "jdbc:mysql://192.168.159.128:3306/GoYa?characterEncoding=UTF-8&useUnicode=true&useSSL=true&serverTimezone=Asia/Shanghai&sessionVariables=foreign_key_checks=0"
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+2023-11-09 18:15:57.939 INFO  --- [  restartedMain] o.a.d.r.m.FrameworkModel       :  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:57.954 INFO  --- [  restartedMain] o.a.d.c.r.GlobalResourcesRepository :  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.026 INFO  --- [  restartedMain] o.a.d.r.m.ApplicationModel     :  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.028 INFO  --- [  restartedMain] o.a.d.r.m.ScopeModel           :  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.058 INFO  --- [  restartedMain] o.a.d.c.c.AbstractConfigManager :  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.059 INFO  --- [  restartedMain] o.a.d.c.c.AbstractConfigManager :  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.074 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityManager :  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.075 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize allow list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo-common/3.2.2/dubbo-common-3.2.2.jar!/security/serialize.allowlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.091 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize allow list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo/3.2.2/dubbo-3.2.2.jar!/security/serialize.allowlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.092 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize blocked list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo-common/3.2.2/dubbo-common-3.2.2.jar!/security/serialize.blockedlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.122 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize blocked list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo/3.2.2/dubbo-3.2.2.jar!/security/serialize.blockedlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.255 INFO  --- [  restartedMain] o.a.d.r.m.ApplicationModel     :  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.255 INFO  --- [  restartedMain] o.a.d.r.m.ScopeModel           :  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.264 INFO  --- [  restartedMain] o.a.d.c.c.AbstractConfigManager :  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.265 INFO  --- [  restartedMain] o.a.d.c.c.AbstractConfigManager :  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.271 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize allow list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo-common/3.2.2/dubbo-common-3.2.2.jar!/security/serialize.allowlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.272 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize allow list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo/3.2.2/dubbo-3.2.2.jar!/security/serialize.allowlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.272 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize blocked list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo-common/3.2.2/dubbo-common-3.2.2.jar!/security/serialize.blockedlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.272 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize blocked list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo/3.2.2/dubbo-3.2.2.jar!/security/serialize.blockedlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.288 INFO  --- [  restartedMain] o.a.d.c.s.c.DubboSpringInitializer :  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.288 INFO  --- [  restartedMain] o.a.d.r.m.ScopeModel           :  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.293 INFO  --- [  restartedMain] o.a.d.c.c.AbstractConfigManager :  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.297 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize allow list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo-common/3.2.2/dubbo-common-3.2.2.jar!/security/serialize.allowlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.297 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize allow list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo/3.2.2/dubbo-3.2.2.jar!/security/serialize.allowlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.298 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize blocked list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo-common/3.2.2/dubbo-common-3.2.2.jar!/security/serialize.blockedlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.298 INFO  --- [  restartedMain] o.a.d.c.u.SerializeSecurityConfigurator :  [DUBBO] Read serialize blocked list from jar:file:/D:/apache-maven-3.8.6/maven-repository/org/apache/dubbo/dubbo/3.2.2/dubbo-3.2.2.jar!/security/serialize.blockedlist, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.300 INFO  --- [  restartedMain] o.a.d.c.s.c.DubboSpringInitializer :  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.301 INFO  --- [  restartedMain] o.a.d.c.s.c.DubboSpringInitializer :  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@5ffad478, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:58.302 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.ServicePackagesHolder]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [dubboServicePackagesHolder] has been registered.
+2023-11-09 18:15:58.303 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.reference.ReferenceBeanManager]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [dubboReferenceBeanManager] has been registered.
+2023-11-09 18:15:58.304 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [referenceAnnotationBeanPostProcessor] has been registered.
+2023-11-09 18:15:58.306 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigAliasPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [dubboConfigAliasPostProcessor] has been registered.
+2023-11-09 18:15:58.306 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboDeployApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [org.apache.dubbo.config.spring.context.DubboDeployApplicationListener] has been registered.
+2023-11-09 18:15:58.307 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboConfigApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [org.apache.dubbo.config.spring.context.DubboConfigApplicationListener] has been registered.
+2023-11-09 18:15:58.308 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.config.DubboConfigDefaultPropertyValueBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [dubboConfigDefaultPropertyValueBeanPostProcessor] has been registered.
+2023-11-09 18:15:58.308 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboConfigBeanInitializer]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [dubboConfigBeanInitializer] has been registered.
+2023-11-09 18:15:58.309 DEBUG --- [  restartedMain] o.a.d.c.s.u.DubboBeanUtils     : The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboInfraBeanRegisterPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=nullwith name [dubboInfraBeanRegisterPostProcessor] has been registered.
+2023-11-09 18:15:59.207 INFO  --- [  restartedMain] o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor :  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.442 DEBUG --- [  restartedMain] o.a.t.u.c.Jre19Compat          : Class not found so assuming code is running on a pre-Java 19 JVM
+
+java.lang.ClassNotFoundException: java.lang.WrongThreadException
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:375) ~[?:?]
+	at org.apache.tomcat.util.compat.Jre19Compat.<clinit>(Jre19Compat.java:37) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.compat.JreCompat.<clinit>(JreCompat.java:55) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.catalina.startup.Tomcat.<clinit>(Tomcat.java:1279) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:193) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:183) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610) ~[spring-context-6.0.13.jar:6.0.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-3.0.12.jar:3.0.12]
+	at com.goya.issue.service.GoyaIssueServiceApplication.main(GoyaIssueServiceApplication.java:17) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.0.12.jar:3.0.12]
+
+2023-11-09 18:15:59.449 DEBUG --- [  restartedMain] o.a.t.u.c.Jre21Compat          : Class not found so assuming code is running on a pre-Java 21 JVM
+
+java.lang.ClassNotFoundException: java.lang.Thread$Builder
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:375) ~[?:?]
+	at org.apache.tomcat.util.compat.Jre21Compat.<clinit>(Jre21Compat.java:43) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.compat.JreCompat.<clinit>(JreCompat.java:55) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.catalina.startup.Tomcat.<clinit>(Tomcat.java:1279) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:193) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:183) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610) ~[spring-context-6.0.13.jar:6.0.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-3.0.12.jar:3.0.12]
+	at com.goya.issue.service.GoyaIssueServiceApplication.main(GoyaIssueServiceApplication.java:17) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.0.12.jar:3.0.12]
+
+2023-11-09 18:15:59.451 DEBUG --- [  restartedMain] o.a.t.u.c.Jre22Compat          : Class not found so assuming code is running on a pre-Java 22 JVM
+
+java.lang.ClassNotFoundException: java.lang.foreign.MemorySegment
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:375) ~[?:?]
+	at org.apache.tomcat.util.compat.Jre22Compat.<clinit>(Jre22Compat.java:40) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.compat.JreCompat.<clinit>(JreCompat.java:55) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.catalina.startup.Tomcat.<clinit>(Tomcat.java:1279) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:193) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:183) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610) ~[spring-context-6.0.13.jar:6.0.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-3.0.12.jar:3.0.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-3.0.12.jar:3.0.12]
+	at com.goya.issue.service.GoyaIssueServiceApplication.main(GoyaIssueServiceApplication.java:17) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.0.12.jar:3.0.12]
+
+2023-11-09 18:15:59.500 DEBUG --- [  restartedMain] o.a.t.u.IntrospectionUtils     : IntrospectionUtils: setProperty(class org.apache.coyote.http11.Http11NioProtocol port=8020)
+2023-11-09 18:15:59.507 DEBUG --- [  restartedMain] o.a.t.u.IntrospectionUtils     : IntrospectionUtils: setProperty(class org.apache.coyote.http11.Http11NioProtocol bindOnInit=false)
+2023-11-09 18:15:59.508 DEBUG --- [  restartedMain] o.a.t.u.IntrospectionUtils     : IntrospectionUtils: setProperty(class org.apache.tomcat.util.net.NioEndpoint bindOnInit=false)
+2023-11-09 18:15:59.523 DEBUG --- [  restartedMain] o.a.c.c.ContainerBase          : Add child StandardHost[localhost] StandardEngine[Tomcat]
+2023-11-09 18:15:59.542 DEBUG --- [  restartedMain] o.a.c.c.ContainerBase          : Add child TomcatEmbeddedContext[/issue] StandardEngine[Tomcat].StandardHost[localhost]
+2023-11-09 18:15:59.570 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardServer[-1]] to [INITIALIZING]
+2023-11-09 18:15:59.570 INFO  --- [  restartedMain] o.a.c.c.AprLifecycleListener   : An older version [1.2.34] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.5]
+2023-11-09 18:15:59.570 INFO  --- [  restartedMain] o.a.c.c.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.34] using APR version [1.7.0].
+2023-11-09 18:15:59.573 INFO  --- [  restartedMain] o.a.c.c.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2023-11-09 18:15:59.579 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@141341f4] to [INITIALIZING]
+2023-11-09 18:15:59.579 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@141341f4] to [INITIALIZED]
+2023-11-09 18:15:59.580 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardService[Tomcat]] to [INITIALIZING]
+2023-11-09 18:15:59.580 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat]] to [INITIALIZING]
+2023-11-09 18:15:59.580 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat]] to [INITIALIZED]
+2023-11-09 18:15:59.581 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.mapper.MapperListener@15ada28e] to [INITIALIZING]
+2023-11-09 18:15:59.581 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.mapper.MapperListener@15ada28e] to [INITIALIZED]
+2023-11-09 18:15:59.581 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [Connector["http-nio-8020"]] to [INITIALIZING]
+2023-11-09 18:15:59.584 INFO  --- [  restartedMain] o.a.c.h.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8020"]
+2023-11-09 18:15:59.585 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [Connector["http-nio-8020"]] to [INITIALIZED]
+2023-11-09 18:15:59.585 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardService[Tomcat]] to [INITIALIZED]
+2023-11-09 18:15:59.585 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardServer[-1]] to [INITIALIZED]
+2023-11-09 18:15:59.585 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardServer[-1]] to [STARTING_PREP]
+2023-11-09 18:15:59.585 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardServer[-1]] to [STARTING]
+2023-11-09 18:15:59.586 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@141341f4] to [STARTING_PREP]
+2023-11-09 18:15:59.588 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@141341f4] to [STARTING]
+2023-11-09 18:15:59.588 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@141341f4] to [STARTED]
+2023-11-09 18:15:59.588 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardService[Tomcat]] to [STARTING_PREP]
+2023-11-09 18:15:59.588 INFO  --- [  restartedMain] o.a.c.c.StandardService        : Starting service [Tomcat]
+2023-11-09 18:15:59.588 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardService[Tomcat]] to [STARTING]
+2023-11-09 18:15:59.588 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat]] to [STARTING_PREP]
+2023-11-09 18:15:59.589 INFO  --- [  restartedMain] o.a.c.c.StandardEngine         : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-09 18:15:59.590 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [SimpleRealm[StandardEngine[Tomcat]]] to [INITIALIZING]
+2023-11-09 18:15:59.591 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [SimpleRealm[StandardEngine[Tomcat]]] to [INITIALIZED]
+2023-11-09 18:15:59.591 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [SimpleRealm[StandardEngine[Tomcat]]] to [STARTING_PREP]
+2023-11-09 18:15:59.591 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [SimpleRealm[StandardEngine[Tomcat]]] to [STARTING]
+2023-11-09 18:15:59.591 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [SimpleRealm[StandardEngine[Tomcat]]] to [STARTED]
+2023-11-09 18:15:59.592 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [INITIALIZING]
+2023-11-09 18:15:59.593 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [INITIALIZED]
+2023-11-09 18:15:59.593 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [STARTING_PREP]
+2023-11-09 18:15:59.595 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]] to [INITIALIZING]
+2023-11-09 18:15:59.595 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]] to [INITIALIZED]
+2023-11-09 18:15:59.595 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]] to [STARTING_PREP]
+2023-11-09 18:15:59.596 DEBUG --- [  restartedMain] o.a.c.c.StandardContext        : Starting issue
+2023-11-09 18:15:59.617 DEBUG --- [  restartedMain] o.a.c.c.StandardContext        : Configuring default Resources
+2023-11-09 18:15:59.622 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.StandardRoot@504d053a] to [INITIALIZING]
+2023-11-09 18:15:59.624 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.StandardRoot@504d053a] to [INITIALIZED]
+2023-11-09 18:15:59.625 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.StandardRoot@504d053a] to [STARTING_PREP]
+2023-11-09 18:15:59.626 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.DirResourceSet@7cd53d4c] to [INITIALIZING]
+2023-11-09 18:15:59.628 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.DirResourceSet@7cd53d4c] to [INITIALIZED]
+2023-11-09 18:15:59.628 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.DirResourceSet@7cd53d4c] to [STARTING_PREP]
+2023-11-09 18:15:59.628 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.DirResourceSet@7cd53d4c] to [STARTING]
+2023-11-09 18:15:59.628 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.DirResourceSet@7cd53d4c] to [STARTED]
+2023-11-09 18:15:59.629 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.StandardRoot@504d053a] to [STARTING]
+2023-11-09 18:15:59.629 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.webresources.StandardRoot@504d053a] to [STARTED]
+2023-11-09 18:15:59.633 DEBUG --- [  restartedMain] o.a.c.c.StandardContext        : Processing standard container startup
+2023-11-09 18:15:59.634 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [WebappLoader[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZING]
+2023-11-09 18:15:59.634 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [WebappLoader[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZED]
+2023-11-09 18:15:59.634 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [WebappLoader[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING_PREP]
+2023-11-09 18:15:59.634 DEBUG --- [  restartedMain] o.a.c.l.WebappLoader           : Starting this Loader
+2023-11-09 18:15:59.644 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [WebappLoader[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING]
+2023-11-09 18:15:59.645 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [WebappLoader[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTED]
+2023-11-09 18:15:59.665 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZING]
+2023-11-09 18:15:59.666 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZED]
+2023-11-09 18:15:59.666 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING_PREP]
+2023-11-09 18:15:59.666 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [NonLoginAuthenticator[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZING]
+2023-11-09 18:15:59.666 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [NonLoginAuthenticator[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZED]
+2023-11-09 18:15:59.667 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [NonLoginAuthenticator[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING_PREP]
+2023-11-09 18:15:59.669 DEBUG --- [  restartedMain] o.a.c.a.AuthenticatorBase      : No SingleSignOn Valve is present
+2023-11-09 18:15:59.669 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [NonLoginAuthenticator[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING]
+2023-11-09 18:15:59.669 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [NonLoginAuthenticator[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTED]
+2023-11-09 18:15:59.670 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardContextValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZING]
+2023-11-09 18:15:59.670 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardContextValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZED]
+2023-11-09 18:15:59.670 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardContextValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING_PREP]
+2023-11-09 18:15:59.670 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardContextValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING]
+2023-11-09 18:15:59.670 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardContextValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTED]
+2023-11-09 18:15:59.671 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING]
+2023-11-09 18:15:59.671 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTED]
+2023-11-09 18:15:59.671 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@67248116] to [INITIALIZING]
+2023-11-09 18:15:59.672 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@67248116] to [INITIALIZED]
+2023-11-09 18:15:59.672 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@67248116] to [STARTING_PREP]
+2023-11-09 18:15:59.672 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@67248116] to [STARTING]
+2023-11-09 18:15:59.672 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.deploy.NamingResourcesImpl@67248116] to [STARTED]
+2023-11-09 18:15:59.680 INFO  --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         : Initializing Spring embedded WebApplicationContext
+2023-11-09 18:15:59.814 DEBUG --- [  restartedMain] o.a.c.c.ContainerBase          : Add child StandardWrapper[dispatcherServlet] StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]
+2023-11-09 18:15:59.815 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]] to [INITIALIZING]
+2023-11-09 18:15:59.815 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]] to [INITIALIZED]
+2023-11-09 18:15:59.815 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]] to [STARTING_PREP]
+2023-11-09 18:15:59.815 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [INITIALIZING]
+2023-11-09 18:15:59.816 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [INITIALIZED]
+2023-11-09 18:15:59.816 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [STARTING_PREP]
+2023-11-09 18:15:59.816 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardWrapperValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [INITIALIZING]
+2023-11-09 18:15:59.816 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardWrapperValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [INITIALIZED]
+2023-11-09 18:15:59.817 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardWrapperValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [STARTING_PREP]
+2023-11-09 18:15:59.817 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardWrapperValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [STARTING]
+2023-11-09 18:15:59.817 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardWrapperValve[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [STARTED]
+2023-11-09 18:15:59.817 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [STARTING]
+2023-11-09 18:15:59.817 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]]] to [STARTED]
+2023-11-09 18:15:59.817 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]] to [STARTING]
+2023-11-09 18:15:59.818 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue].StandardWrapper[dispatcherServlet]] to [STARTED]
+2023-11-09 18:15:59.836 DEBUG --- [  restartedMain] o.a.c.c.StandardContext        : Configuring application event listeners
+2023-11-09 18:15:59.836 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         : Sending application start events
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZING]
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [INITIALIZED]
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING_PREP]
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.springframework.boot.web.embedded.tomcat.LazySessionIdGenerator@5f651d70] to [INITIALIZING]
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.springframework.boot.web.embedded.tomcat.LazySessionIdGenerator@5f651d70] to [INITIALIZED]
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.springframework.boot.web.embedded.tomcat.LazySessionIdGenerator@5f651d70] to [STARTING_PREP]
+2023-11-09 18:15:59.839 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.springframework.boot.web.embedded.tomcat.LazySessionIdGenerator@5f651d70] to [STARTING]
+2023-11-09 18:15:59.840 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.springframework.boot.web.embedded.tomcat.LazySessionIdGenerator@5f651d70] to [STARTED]
+2023-11-09 18:15:59.840 DEBUG --- [  restartedMain] o.a.c.s.StandardManager        : Start: Loading persisted sessions
+2023-11-09 18:15:59.840 DEBUG --- [  restartedMain] o.a.c.s.StandardManager        : Loading persisted sessions from [C:\Users\86152\AppData\Local\Temp\EBAFC93EEBE6691DA1E6927BD04A2C51C48DBE7A\servlet-sessions\SESSIONS.ser]
+2023-11-09 18:15:59.840 DEBUG --- [  restartedMain] o.a.c.s.StandardManager        : No persisted data file found
+2023-11-09 18:15:59.840 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTING]
+2023-11-09 18:15:59.840 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]]] to [STARTED]
+2023-11-09 18:15:59.841 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         : Starting filters
+2023-11-09 18:15:59.841 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         :  Starting filter 'requestContextFilter'
+2023-11-09 18:15:59.847 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         :  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+2023-11-09 18:15:59.848 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         :  Starting filter 'serverHttpObservationFilter'
+2023-11-09 18:15:59.848 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         :  Starting filter 'characterEncodingFilter'
+2023-11-09 18:15:59.848 DEBUG --- [  restartedMain] o.a.c.c.C.[.[.[/issue]         :  Starting filter 'formContentFilter'
+2023-11-09 18:15:59.848 DEBUG --- [  restartedMain] o.a.c.c.StandardContext        : Starting completed
+2023-11-09 18:15:59.849 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]] to [STARTING]
+2023-11-09 18:15:59.849 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[/issue]] to [STARTED]
+2023-11-09 18:15:59.849 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZING]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZED]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING_PREP]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZING]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZED]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING_PREP]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTED]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZING]
+2023-11-09 18:15:59.850 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZED]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING_PREP]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTED]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTED]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [STARTING]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [STARTED]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [INITIALIZING]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [INITIALIZED]
+2023-11-09 18:15:59.851 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [STARTING_PREP]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [INITIALIZING]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [INITIALIZED]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [STARTING_PREP]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [STARTING]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [STARTED]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [STARTING]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [STARTED]
+2023-11-09 18:15:59.852 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat]] to [STARTING]
+2023-11-09 18:15:59.854 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardEngine[Tomcat]] to [STARTED]
+2023-11-09 18:15:59.854 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.mapper.MapperListener@15ada28e] to [STARTING_PREP]
+2023-11-09 18:15:59.854 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.mapper.MapperListener@15ada28e] to [STARTING]
+2023-11-09 18:15:59.855 DEBUG --- [  restartedMain] o.a.c.m.Mapper                 : Registered host [localhost]
+2023-11-09 18:15:59.856 DEBUG --- [  restartedMain] o.a.c.m.MapperListener         : Register Wrapper [dispatcherServlet] in Context [/issue] for service [StandardService[Tomcat]]
+2023-11-09 18:15:59.857 DEBUG --- [  restartedMain] o.a.c.m.MapperListener         : Register Context [/issue] for service [StandardService[Tomcat]]
+2023-11-09 18:15:59.857 DEBUG --- [  restartedMain] o.a.c.m.MapperListener         : Register host [localhost] at domain [null] for service [StandardService[Tomcat]]
+2023-11-09 18:15:59.857 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [org.apache.catalina.mapper.MapperListener@15ada28e] to [STARTED]
+2023-11-09 18:15:59.857 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardService[Tomcat]] to [STARTED]
+2023-11-09 18:15:59.859 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [StandardServer[-1]] to [STARTED]
+2023-11-09 18:15:59.907 INFO  --- [  restartedMain] o.a.d.c.s.c.DubboConfigBeanInitializer :  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.912 INFO  --- [  restartedMain] o.a.d.c.s.c.DubboConfigBeanInitializer :  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.933 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ApplicationConfig with prefix [dubbo.application], extracted props: {name=goya-issue, qos-enable=true}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.965 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing RegistryConfig with prefix [dubbo.registry], extracted props: {address=nacos://192.168.159.128:8848}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.984 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.985 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] The registry[<dubbo:registry address="nacos://192.168.159.128:8848" protocol="nacos" port="8848" />] will be used as the config center, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.990 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-192.168.159.128-8848" address="nacos://192.168.159.128:8848" protocol="nacos" port="8848" parameters="{client=null}" />, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:15:59.992 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ConfigCenterConfig[id=config-center-nacos-192.168.159.128-8848] with prefix [dubbo.config-centers.config-center-nacos-192.168.159.128-8848], extracted props: {port=8848, protocol=nacos, highest-priority=false, id=config-center-nacos-192.168.159.128-8848, address=nacos://192.168.159.128:8848}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.016 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-09 18:16:00.016 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-09 18:16:00.207 WARN  --- [  restartedMain] o.a.d.c.c.ConfigurationUtils   :  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.2, current host: 192.168.150.1, error code: 0-12. This may be caused by , go to https://dubbo.apache.org/faq/0/12 to find instructions. 
+2023-11-09 18:16:00.207 WARN  --- [  restartedMain] o.a.d.c.c.ConfigurationUtils   :  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.2, current host: 192.168.150.1, error code: 0-12. This may be caused by , go to https://dubbo.apache.org/faq/0/12 to find instructions. 
+2023-11-09 18:16:00.215 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ApplicationConfig[name=goya-issue] with prefix [dubbo.application], extracted props: {name=goya-issue, qos-enable=true, executor-management-mode=isolation, hostname=lIlIlI, protocol=dubbo, enable-file-cache=true}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.217 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing RegistryConfig with prefix [dubbo.registry], extracted props: {address=nacos://192.168.159.128:8848, port=8848, protocol=nacos}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.218 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ConfigCenterConfig[id=config-center-nacos-192.168.159.128-8848] with prefix [dubbo.config-centers.config-center-nacos-192.168.159.128-8848], extracted props: {timeout=30000, port=8848, protocol=nacos, config-file=dubbo.properties, highest-priority=false, id=config-center-nacos-192.168.159.128-8848, group=dubbo, address=nacos://192.168.159.128:8848, namespace=dubbo, check=true}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.224 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ProtocolConfig with prefix [dubbo.protocol], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.230 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing SslConfig with prefix [dubbo.ssl], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.230 INFO  --- [  restartedMain] o.a.d.c.c.ConfigManager        :  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.231 INFO  --- [  restartedMain] o.a.d.c.c.ConfigManager        :  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="goya-issue" qosEnable="true" protocol="dubbo" />, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.232 INFO  --- [  restartedMain] o.a.d.c.c.ConfigManager        :  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" name="dubbo" />, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.232 INFO  --- [  restartedMain] o.a.d.c.c.ConfigManager        :  [DUBBO] <dubbo:registry address="nacos://192.168.159.128:8848" protocol="nacos" port="8848" />, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.232 INFO  --- [  restartedMain] o.a.d.c.c.ConfigManager        :  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.246 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ProviderConfig with prefix [dubbo.provider], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.253 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ConsumerConfig with prefix [dubbo.consumer], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.256 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ModuleConfig with prefix [dubbo.module], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.257 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ModuleConfig with prefix [dubbo.module], extracted props: {background=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.259 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ProviderConfig with prefix [dubbo.provider], extracted props: {deprecated=false, dynamic=true}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.260 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ConsumerConfig with prefix [dubbo.consumer], extracted props: {sticky=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.261 INFO  --- [  restartedMain] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.262 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ProviderConfig with prefix [dubbo.provider], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.263 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ConsumerConfig with prefix [dubbo.consumer], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.264 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ModuleConfig with prefix [dubbo.module], extracted props: {}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.264 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ModuleConfig with prefix [dubbo.module], extracted props: {background=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.264 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ProviderConfig with prefix [dubbo.provider], extracted props: {deprecated=false, dynamic=true}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.265 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ConsumerConfig with prefix [dubbo.consumer], extracted props: {sticky=false}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.265 INFO  --- [  restartedMain] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.275 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.276 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] The registry[<dubbo:registry address="nacos://192.168.159.128:8848" protocol="nacos" port="8848" />] will be used as the metadata center, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.279 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] use registry as metadata-center: <dubbo:metadata-report address="nacos://192.168.159.128:8848" protocol="nacos" port="8848" parameters="{client=null}" />, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.283 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.metadata.report;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class MetadataReportFactory$Adaptive implements org.apache.dubbo.metadata.report.MetadataReportFactory {
+public void destroy()  {
+throw new UnsupportedOperationException("The method public default void org.apache.dubbo.metadata.report.MetadataReportFactory.destroy() of interface org.apache.dubbo.metadata.report.MetadataReportFactory is not adaptive method!");
+}
+public org.apache.dubbo.metadata.report.MetadataReport getMetadataReport(org.apache.dubbo.common.URL arg0)  {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "redis" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.metadata.report.MetadataReportFactory) name from url (" + url.toString() + ") use keys([protocol])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.metadata.report.MetadataReportFactory.class);
+org.apache.dubbo.metadata.report.MetadataReportFactory extension = (org.apache.dubbo.metadata.report.MetadataReportFactory)scopeModel.getExtensionLoader(org.apache.dubbo.metadata.report.MetadataReportFactory.class).getExtension(extName);
+return extension.getMetadataReport(arg0);
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.393 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-09 18:16:00.393 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-09 18:16:00.519 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.1](goya-issue) has been initialized!, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:00.533 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@636cd434
+2023-11-09 18:16:01.028 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : HikariPool-1 - configuration:
+2023-11-09 18:16:01.031 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : allowPoolSuspension.............false
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : autoCommit......................true
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : catalog.........................none
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : connectionInitSql...............none
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : connectionTestQuery.............none
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : connectionTimeout...............30000
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : dataSource......................none
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : dataSourceClassName.............none
+2023-11-09 18:16:01.032 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : dataSourceJNDI..................none
+2023-11-09 18:16:01.033 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : dataSourceProperties............{password=<masked>}
+2023-11-09 18:16:01.033 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : driverClassName................."com.mysql.cj.jdbc.Driver"
+2023-11-09 18:16:01.033 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : exceptionOverrideClassName......none
+2023-11-09 18:16:01.033 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : healthCheckProperties...........{}
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : healthCheckRegistry.............none
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : idleTimeout.....................600000
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : initializationFailTimeout.......1
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : isolateInternalQueries..........false
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : jdbcUrl.........................jdbc:mysql://192.168.159.128:3306/GoYa?characterEncoding=UTF-8&useUnicode=true&useSSL=true&serverTimezone=Asia/Shanghai&sessionVariables=foreign_key_checks=0
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : keepaliveTime...................0
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : leakDetectionThreshold..........0
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : maxLifetime.....................1800000
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : maximumPoolSize.................10
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : metricRegistry..................none
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : metricsTrackerFactory...........none
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : minimumIdle.....................10
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : password........................<masked>
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : poolName........................"HikariPool-1"
+2023-11-09 18:16:01.034 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : readOnly........................false
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : registerMbeans..................false
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : scheduledExecutor...............none
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : schema..........................none
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : threadFactory...................internal
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : transactionIsolation............default
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : username........................"root"
+2023-11-09 18:16:01.035 DEBUG --- [  restartedMain] c.z.h.HikariConfig             : validationTimeout...............5000
+2023-11-09 18:16:01.035 INFO  --- [  restartedMain] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2023-11-09 18:16:01.311 DEBUG --- [  restartedMain] j.e.security                   : X509Certificate: Alg:SHA256withRSA, Serial:2, Subject:CN=MySQL_Server_8.0.20_Auto_Generated_Server_Certificate, Issuer:CN=MySQL_Server_8.0.20_Auto_Generated_CA_Certificate, Key type:RSA, Length:2048, Cert Id:-720105768, Valid from:2023/4/21 下午10:31, Valid until:2033/4/18 下午10:31
+2023-11-09 18:16:01.312 DEBUG --- [  restartedMain] j.e.security                   : X509Certificate: Alg:SHA256withRSA, Serial:1, Subject:CN=MySQL_Server_8.0.20_Auto_Generated_CA_Certificate, Issuer:CN=MySQL_Server_8.0.20_Auto_Generated_CA_Certificate, Key type:RSA, Length:2048, Cert Id:1870564551, Valid from:2023/4/21 下午10:31, Valid until:2033/4/18 下午10:31
+2023-11-09 18:16:01.325 DEBUG --- [  restartedMain] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:01.618 INFO  --- [  restartedMain] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45678c1d
+2023-11-09 18:16:01.620 INFO  --- [  restartedMain] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2023-11-09 18:16:01.642 INFO  --- [  restartedMain] SQL dialect                    : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-11-09 18:16:01.723 DEBUG --- [l-1 housekeeper] c.z.h.p.HikariPool             : HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2023-11-09 18:16:01.738 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:01.874 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f2030a1
+2023-11-09 18:16:01.900 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:02.074 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1abfe022
+2023-11-09 18:16:02.111 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:02.273 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47461539
+2023-11-09 18:16:02.298 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:02.476 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12b26867
+2023-11-09 18:16:02.505 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:02.687 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4492092c
+2023-11-09 18:16:02.714 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:02.893 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67277080
+2023-11-09 18:16:02.918 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:03.092 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d2335f
+2023-11-09 18:16:03.117 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:03.325 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ea20a93
+2023-11-09 18:16:03.350 DEBUG --- [onnection adder] j.e.security                   :  TLSHandshake: 192.168.159.128:3306, TLSv1.3, TLS_AES_256_GCM_SHA384, -720105768
+2023-11-09 18:16:03.505 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3292634b
+2023-11-09 18:16:03.518 DEBUG --- [onnection adder] c.z.h.p.HikariPool             : HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2023-11-09 18:16:04.061 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 
+	c.g.i.s.c.IssueController:
+	{GET [/issue/{name}]}: getByName(String)
+	{GET [/issue/count]}: getCount()
+	{GET [/issue]}: findPage(Integer,Integer)
+2023-11-09 18:16:04.065 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 
+	c.g.i.s.c.ProjectCategoryController:
+	{GET [/projectCategory/list]}: findAll()
+2023-11-09 18:16:04.065 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 
+	c.g.i.s.c.ProjectController:
+	{GET [/project/list]}: list(int,int)
+	{POST [/project]}: save(Project)
+2023-11-09 18:16:04.066 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 
+	c.g.i.s.c.ProjectTypeController:
+	{GET [/projectType/list]}: findAll()
+2023-11-09 18:16:04.066 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 
+	c.g.i.s.c.SysUserController:
+	
+2023-11-09 18:16:04.067 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-11-09 18:16:04.078 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 'beanNameHandlerMapping' {}
+2023-11-09 18:16:04.091 DEBUG --- [  restartedMain] _.s.w.s.H.Mappings             : 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2023-11-09 18:16:04.728 DEBUG --- [  restartedMain] i.m.c.u.i.l.InternalLoggerFactory : Using SLF4J as the default logging framework
+2023-11-09 18:16:05.078 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [Connector["http-nio-8020"]] to [STARTING_PREP]
+2023-11-09 18:16:05.078 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [Connector["http-nio-8020"]] to [STARTING]
+2023-11-09 18:16:05.079 INFO  --- [  restartedMain] o.a.c.h.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8020"]
+2023-11-09 18:16:05.091 DEBUG --- [  restartedMain] o.a.c.u.LifecycleBase          : Setting state for [Connector["http-nio-8020"]] to [STARTED]
+2023-11-09 18:16:05.092 DEBUG --- [o-8020-Acceptor] o.a.t.u.t.LimitLatch           : Counting up[http-nio-8020-Acceptor] latch=0
+2023-11-09 18:16:05.106 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-09 18:16:05.106 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-09 18:16:05.268 INFO  --- [  restartedMain] c.a.c.n.r.NacosServiceRegistry : nacos registry, DEFAULT_GROUP goya-issue 192.168.150.1:8020 register finished
+2023-11-09 18:16:05.463 INFO  --- [  restartedMain] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.1] is starting., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.464 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.1](goya-issue) is starting., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.465 INFO  --- [  restartedMain] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.0] is starting., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.465 INFO  --- [  restartedMain] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.0] has started., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.465 INFO  --- [  restartedMain] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.1] has started., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.465 INFO  --- [  restartedMain] o.a.d.c.d.DefaultMetricsServiceExporter :  [DUBBO] The MetricsConfig not exist, will not export metrics service., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.470 INFO  --- [  restartedMain] o.a.d.c.b.b.InternalServiceConfigBuilder :  [DUBBO] org.apache.dubbo.metadata.MetadataServiceService Port hasn't been set will use default protocol defined in protocols., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.505 INFO  --- [  restartedMain] o.a.d.c.b.b.InternalServiceConfigBuilder :  [DUBBO] Using dubbo protocol to export org.apache.dubbo.metadata.MetadataService service on port -1, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.510 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.rpc;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class Protocol$Adaptive implements org.apache.dubbo.rpc.Protocol {
+public void destroy()  {
+throw new UnsupportedOperationException("The method public abstract void org.apache.dubbo.rpc.Protocol.destroy() of interface org.apache.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort()  {
+throw new UnsupportedOperationException("The method public abstract int org.apache.dubbo.rpc.Protocol.getDefaultPort() of interface org.apache.dubbo.rpc.Protocol is not adaptive method!");
+}
+public org.apache.dubbo.rpc.Exporter export(org.apache.dubbo.rpc.Invoker arg0) throws org.apache.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("org.apache.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("org.apache.dubbo.rpc.Invoker argument getUrl() == null");
+org.apache.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.rpc.Protocol) name from url (" + url.toString() + ") use keys([protocol])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.rpc.Protocol.class);
+org.apache.dubbo.rpc.Protocol extension = (org.apache.dubbo.rpc.Protocol)scopeModel.getExtensionLoader(org.apache.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public org.apache.dubbo.rpc.Invoker refer(java.lang.Class arg0, org.apache.dubbo.common.URL arg1) throws org.apache.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.rpc.Protocol) name from url (" + url.toString() + ") use keys([protocol])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.rpc.Protocol.class);
+org.apache.dubbo.rpc.Protocol extension = (org.apache.dubbo.rpc.Protocol)scopeModel.getExtensionLoader(org.apache.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+public java.util.List getServers()  {
+throw new UnsupportedOperationException("The method public default java.util.List org.apache.dubbo.rpc.Protocol.getServers() of interface org.apache.dubbo.rpc.Protocol is not adaptive method!");
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.543 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.rpc;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class ProxyFactory$Adaptive implements org.apache.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(org.apache.dubbo.rpc.Invoker arg0) throws org.apache.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("org.apache.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("org.apache.dubbo.rpc.Invoker argument getUrl() == null");
+org.apache.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.rpc.ProxyFactory) name from url (" + url.toString() + ") use keys([proxy])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.rpc.ProxyFactory.class);
+org.apache.dubbo.rpc.ProxyFactory extension = (org.apache.dubbo.rpc.ProxyFactory)scopeModel.getExtensionLoader(org.apache.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public java.lang.Object getProxy(org.apache.dubbo.rpc.Invoker arg0, boolean arg1) throws org.apache.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("org.apache.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("org.apache.dubbo.rpc.Invoker argument getUrl() == null");
+org.apache.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.rpc.ProxyFactory) name from url (" + url.toString() + ") use keys([proxy])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.rpc.ProxyFactory.class);
+org.apache.dubbo.rpc.ProxyFactory extension = (org.apache.dubbo.rpc.ProxyFactory)scopeModel.getExtensionLoader(org.apache.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0, arg1);
+}
+public org.apache.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, org.apache.dubbo.common.URL arg2) throws org.apache.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.rpc.ProxyFactory) name from url (" + url.toString() + ") use keys([proxy])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.rpc.ProxyFactory.class);
+org.apache.dubbo.rpc.ProxyFactory extension = (org.apache.dubbo.rpc.ProxyFactory)scopeModel.getExtensionLoader(org.apache.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.562 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ServiceConfig with prefix [dubbo.service], extracted props: {group=goya-issue, register=false, interface=org.apache.dubbo.metadata.MetadataService, deprecated=false, dynamic=true, version=1.0.0, delay=0}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.568 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing MethodConfig[name=getAndListenInstanceMetadata] with prefix [dubbo.service.getAndListenInstanceMetadata], extracted props: {name=getAndListenInstanceMetadata}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.569 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing ServiceConfig with prefix [dubbo.service.org.apache.dubbo.metadata.MetadataService], extracted props: {version=1.0.0, interface=org.apache.dubbo.metadata.MetadataService, deprecated=false, group=goya-issue, register=false, dynamic=true, delay=0}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.571 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing MethodConfig[name=getAndListenInstanceMetadata] with prefix [dubbo.service.org.apache.dubbo.metadata.MetadataService.getAndListenInstanceMetadata], extracted props: {sent=true, name=getAndListenInstanceMetadata, return=true}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.585 DEBUG --- [  restartedMain] o.a.d.c.AbstractConfig         :  [DUBBO] Refreshing RegistryConfig[id=internal-metadata-registry] with prefix [dubbo.registry], extracted props: {address=nacos://192.168.159.128:8848, port=0, id=internal-metadata-registry}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:05.774 DEBUG --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] No valid ip found from environment, try to get local host., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.112 WARN  --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] Use random available port(20880) for protocol dubbo, dubbo version: 3.2.2, current host: 192.168.150.1, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-11-09 18:16:06.201 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.monitor;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class MonitorFactory$Adaptive implements org.apache.dubbo.monitor.MonitorFactory {
+public org.apache.dubbo.monitor.Monitor getMonitor(org.apache.dubbo.common.URL arg0)  {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.monitor.MonitorFactory) name from url (" + url.toString() + ") use keys([protocol])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.monitor.MonitorFactory.class);
+org.apache.dubbo.monitor.MonitorFactory extension = (org.apache.dubbo.monitor.MonitorFactory)scopeModel.getExtensionLoader(org.apache.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.219 DEBUG --- [  restartedMain] i.n.u.i.l.InternalLoggerFactory : Using SLF4J as the default logging framework
+2023-11-09 18:16:06.233 DEBUG --- [  restartedMain] i.n.c.MultithreadEventLoopGroup : -Dio.netty.eventLoopThreads: 24
+2023-11-09 18:16:06.246 DEBUG --- [  restartedMain] i.n.u.c.GlobalEventExecutor    : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2023-11-09 18:16:06.253 DEBUG --- [  restartedMain] i.n.u.i.InternalThreadLocalMap : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2023-11-09 18:16:06.253 DEBUG --- [  restartedMain] i.n.u.i.InternalThreadLocalMap : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2023-11-09 18:16:06.280 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2023-11-09 18:16:06.280 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : Java version: 17
+2023-11-09 18:16:06.281 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2023-11-09 18:16:06.281 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : sun.misc.Unsafe.copyMemory: available
+2023-11-09 18:16:06.282 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2023-11-09 18:16:06.282 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : java.nio.Buffer.address: available
+2023-11-09 18:16:06.283 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2023-11-09 18:16:06.284 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2023-11-09 18:16:06.284 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @543588e6
+2023-11-09 18:16:06.285 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2023-11-09 18:16:06.285 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : sun.misc.Unsafe: available
+2023-11-09 18:16:06.286 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : -Dio.netty.tmpdir: C:\Users\86152\AppData\Local\Temp (java.io.tmpdir)
+2023-11-09 18:16:06.286 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2023-11-09 18:16:06.286 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : Platform: Windows
+2023-11-09 18:16:06.287 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : -Dio.netty.maxDirectMemory: -1 bytes
+2023-11-09 18:16:06.287 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2023-11-09 18:16:06.288 DEBUG --- [  restartedMain] i.n.u.i.CleanerJava9           : java.nio.ByteBuffer.cleaner(): available
+2023-11-09 18:16:06.288 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : -Dio.netty.noPreferDirect: false
+2023-11-09 18:16:06.289 DEBUG --- [  restartedMain] i.n.c.n.NioEventLoop           : -Dio.netty.noKeySetOptimization: false
+2023-11-09 18:16:06.289 DEBUG --- [  restartedMain] i.n.c.n.NioEventLoop           : -Dio.netty.selectorAutoRebuildThreshold: 512
+2023-11-09 18:16:06.298 DEBUG --- [  restartedMain] i.n.u.i.PlatformDependent      : org.jctools-core.MpscChunkedArrayQueue: available
+2023-11-09 18:16:06.379 DEBUG --- [  restartedMain] i.n.c.DefaultChannelId         : -Dio.netty.processId: 11372 (auto-detected)
+2023-11-09 18:16:06.385 DEBUG --- [  restartedMain] i.n.u.NetUtil                  : -Djava.net.preferIPv4Stack: false
+2023-11-09 18:16:06.385 DEBUG --- [  restartedMain] i.n.u.NetUtil                  : -Djava.net.preferIPv6Addresses: false
+2023-11-09 18:16:06.399 DEBUG --- [  restartedMain] i.n.u.NetUtilInitializations   : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2023-11-09 18:16:06.401 DEBUG --- [  restartedMain] i.n.u.NetUtil                  : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2023-11-09 18:16:06.443 DEBUG --- [  restartedMain] i.n.c.DefaultChannelId         : -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:01 (auto-detected)
+2023-11-09 18:16:06.456 DEBUG --- [  restartedMain] i.n.u.ResourceLeakDetector     : -Dio.netty.leakDetection.level: simple
+2023-11-09 18:16:06.456 DEBUG --- [  restartedMain] i.n.u.ResourceLeakDetector     : -Dio.netty.leakDetection.targetRecords: 4
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.numHeapArenas: 24
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.numDirectArenas: 24
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.pageSize: 8192
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.maxOrder: 9
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.chunkSize: 4194304
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.smallCacheSize: 256
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.normalCacheSize: 64
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.cacheTrimInterval: 8192
+2023-11-09 18:16:06.480 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2023-11-09 18:16:06.481 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.useCacheForAllThreads: false
+2023-11-09 18:16:06.481 DEBUG --- [  restartedMain] i.n.b.PooledByteBufAllocator   : -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2023-11-09 18:16:06.494 DEBUG --- [  restartedMain] i.n.b.ByteBufUtil              : -Dio.netty.allocator.type: pooled
+2023-11-09 18:16:06.494 DEBUG --- [  restartedMain] i.n.b.ByteBufUtil              : -Dio.netty.threadLocalDirectBufferSize: 0
+2023-11-09 18:16:06.494 DEBUG --- [  restartedMain] i.n.b.ByteBufUtil              : -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2023-11-09 18:16:06.503 INFO  --- [  restartedMain] o.a.d.q.s.Server               :  [DUBBO] qos-server bind localhost:22222, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.521 INFO  --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] Export dubbo service org.apache.dubbo.metadata.MetadataService to local registry url : injvm://127.0.0.1/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&exporter.listener=injvm&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.521 INFO  --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] Export dubbo service org.apache.dubbo.metadata.MetadataService to url dubbo://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.587 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.remoting;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class Transporter$Adaptive implements org.apache.dubbo.remoting.Transporter {
+public org.apache.dubbo.remoting.Client connect(org.apache.dubbo.common.URL arg0, org.apache.dubbo.remoting.ChannelHandler arg1) throws org.apache.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.remoting.Transporter) name from url (" + url.toString() + ") use keys([client, transporter])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.remoting.Transporter.class);
+org.apache.dubbo.remoting.Transporter extension = (org.apache.dubbo.remoting.Transporter)scopeModel.getExtensionLoader(org.apache.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+public org.apache.dubbo.remoting.RemotingServer bind(org.apache.dubbo.common.URL arg0, org.apache.dubbo.remoting.ChannelHandler arg1) throws org.apache.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.remoting.Transporter) name from url (" + url.toString() + ") use keys([server, transporter])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.remoting.Transporter.class);
+org.apache.dubbo.remoting.Transporter extension = (org.apache.dubbo.remoting.Transporter)scopeModel.getExtensionLoader(org.apache.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.612 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.remoting;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class Dispatcher$Adaptive implements org.apache.dubbo.remoting.Dispatcher {
+public org.apache.dubbo.remoting.ChannelHandler dispatch(org.apache.dubbo.remoting.ChannelHandler arg0, org.apache.dubbo.common.URL arg1)  {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.remoting.Dispatcher) name from url (" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.remoting.Dispatcher.class);
+org.apache.dubbo.remoting.Dispatcher extension = (org.apache.dubbo.remoting.Dispatcher)scopeModel.getExtensionLoader(org.apache.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.677 INFO  --- [  restartedMain] o.a.d.r.t.AbstractServer       :  [DUBBO] Start NettyServer bind /0.0.0.0:20880, export /192.168.150.1:20880, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.691 DEBUG --- [  restartedMain] o.a.d.c.e.AdaptiveClassCodeGenerator :  [DUBBO] package org.apache.dubbo.registry;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+public class RegistryFactory$Adaptive implements org.apache.dubbo.registry.RegistryFactory {
+public org.apache.dubbo.registry.Registry getRegistry(org.apache.dubbo.common.URL arg0)  {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+org.apache.dubbo.common.URL url = arg0;
+String extName = url.getProtocol();
+if(extName == null) throw new IllegalStateException("Failed to get extension (org.apache.dubbo.registry.RegistryFactory) name from url (" + url.toString() + ") use keys([protocol])");
+ScopeModel scopeModel = ScopeModelUtil.getOrDefault(url.getScopeModel(), org.apache.dubbo.registry.RegistryFactory.class);
+org.apache.dubbo.registry.RegistryFactory extension = (org.apache.dubbo.registry.RegistryFactory)scopeModel.getExtensionLoader(org.apache.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.721 INFO  --- [  restartedMain] o.a.d.r.c.m.s.MetaCacheManager :  [DUBBO] Successfully loaded meta cache from file .metadata.goya-issue.nacos.192.168.159.128:8848, entries 0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.725 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-09 18:16:06.725 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-09 18:16:06.869 INFO  --- [  restartedMain] o.a.d.r.n.NacosNamingServiceWrapper :  [DUBBO] Nacos batch register enable: true, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.876 INFO  --- [  restartedMain] o.a.d.m.MappingCacheManager    :  [DUBBO] Successfully loaded mapping cache from file .mapping.goya-issue, entries 0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.888 INFO  --- [  restartedMain] o.a.d.r.c.m.MigrationRuleListener :  [DUBBO] Listening for migration rules on dataId goya-issue.migration, group DUBBO_SERVICEDISCOVERY_MIGRATION, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.912 INFO  --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] Export dubbo service org.apache.dubbo.metadata.MetadataService to url dubbo://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:06.936 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-09 18:16:06.936 INFO  --- [  restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-09 18:16:07.105 INFO  --- [  restartedMain] o.a.d.r.n.NacosNamingServiceWrapper :  [DUBBO] Nacos batch register enable: true, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.106 INFO  --- [  restartedMain] o.a.d.r.n.NacosRegistry        :  [DUBBO] Subscribe: provider://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&category=configurators&check=false&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.134 WARN  --- [  restartedMain] o.a.d.r.n.NacosRegistry        :  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.2, current host: 192.168.150.1, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-11-09 18:16:07.134 INFO  --- [  restartedMain] o.a.d.r.n.NacosRegistry        :  [DUBBO] Notify urls for subscribe url provider://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&category=configurators&check=false&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, url size: 1, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.139 INFO  --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] Try to register interface application mapping for service goya-issue/org.apache.dubbo.metadata.MetadataService:1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.139 INFO  --- [  restartedMain] o.a.d.c.ServiceConfig          :  [DUBBO] Successfully registered interface application mapping for service goya-issue/org.apache.dubbo.metadata.MetadataService:1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.139 INFO  --- [  restartedMain] o.a.d.c.m.ConfigurableMetadataServiceExporter :  [DUBBO] The MetadataService exports urls : [dubbo://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0], dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.141 INFO  --- [  restartedMain] o.a.d.r.c.m.ServiceInstanceMetadataUtils :  [DUBBO] Start registering instance address to registry., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.148 INFO  --- [  restartedMain] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.1](goya-issue) is ready., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:07.152 INFO  --- [  restartedMain] c.g.i.s.GoyaIssueServiceApplication : Started GoyaIssueServiceApplication in 12.992 seconds (process running for 14.413)
+2023-11-09 18:16:07.160 INFO  --- [  restartedMain] c.a.c.n.r.NacosContextRefresher : [Nacos Config] Listening config: dataId=application-dev.yml, group=DEFAULT_GROUP
+2023-11-09 18:16:21.613 DEBUG --- [o-8020-Acceptor] o.a.t.u.t.LimitLatch           : Counting up[http-nio-8020-Acceptor] latch=1
+2023-11-09 18:16:21.614 DEBUG --- [o-8020-Acceptor] o.a.t.u.t.LimitLatch           : Counting up[http-nio-8020-Acceptor] latch=2
+2023-11-09 18:16:21.616 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11NioProtocol      : Processing socket [org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]] with status [OPEN_READ]
+2023-11-09 18:16:21.616 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11NioProtocol      : Processing socket [org.apache.tomcat.util.net.NioChannel@7b8b0736:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55394]] with status [OPEN_READ]
+2023-11-09 18:16:21.616 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11NioProtocol      : Found processor [null] for socket [org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]]
+2023-11-09 18:16:21.616 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11NioProtocol      : Found processor [null] for socket [org.apache.tomcat.util.net.NioChannel@7b8b0736:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55394]]
+2023-11-09 18:16:21.616 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11NioProtocol      : Popped processor [null] from cache
+2023-11-09 18:16:21.616 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11NioProtocol      : Popped processor [null] from cache
+2023-11-09 18:16:21.648 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11NioProtocol      : Register [org.apache.coyote.http11.Http11Processor@1794880f] as [Tomcat:type=RequestProcessor,worker="http-nio-8020",name=HttpRequest1]
+2023-11-09 18:16:21.648 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11NioProtocol      : Created new processor [org.apache.coyote.http11.Http11Processor@1794880f]
+2023-11-09 18:16:21.648 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11NioProtocol      : Register [org.apache.coyote.http11.Http11Processor@59919d58] as [Tomcat:type=RequestProcessor,worker="http-nio-8020",name=HttpRequest2]
+2023-11-09 18:16:21.648 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11NioProtocol      : Created new processor [org.apache.coyote.http11.Http11Processor@59919d58]
+2023-11-09 18:16:21.653 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11InputBuffer      : Before fill(): parsingHeader: [true], parsingRequestLine: [true], parsingRequestLinePhase: [0], parsingRequestLineStart: [0], byteBuffer.position(): [0], byteBuffer.limit(): [0], end: [0]
+2023-11-09 18:16:21.653 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11InputBuffer      : Before fill(): parsingHeader: [true], parsingRequestLine: [true], parsingRequestLinePhase: [0], parsingRequestLineStart: [0], byteBuffer.position(): [0], byteBuffer.limit(): [0], end: [0]
+2023-11-09 18:16:21.653 DEBUG --- [nio-8020-exec-1] o.a.t.u.n.SocketWrapperBase    : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@5c45549a:org.apache.tomcat.util.net.NioChannel@7b8b0736:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55394]], Read from buffer: [0]
+2023-11-09 18:16:21.653 DEBUG --- [nio-8020-exec-3] o.a.t.u.n.SocketWrapperBase    : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Read from buffer: [0]
+2023-11-09 18:16:21.654 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11Processor        : Error parsing HTTP request header
+
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1296) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1184) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:785) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:348) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+2023-11-09 18:16:21.654 DEBUG --- [nio-8020-exec-3] o.a.t.u.n.NioEndpoint          : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Read direct from socket: [457]
+2023-11-09 18:16:21.654 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11InputBuffer      : Received [POST /issue/project HTTP/1.1
+User-Agent: Apifox/1.0.0 (https://apifox.com)
+Content-Type: application/json
+Accept: */*
+Host: localhost:8020
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 230
+
+{
+    "id": 12,
+    "name": "EA-FB-4872-Y",
+    "icon": "VyKJzEFqsJ",
+    "keyword": "zeAebhMcns",
+    "description": "QxfTYoXwKr",
+    "manager": "CTXoN0LjR6",
+    "status": "0",
+    "category_id": 1,
+    "type_id": 2
+}]
+2023-11-09 18:16:21.654 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11Processor        : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1296) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1184) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:785) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:348) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+2023-11-09 18:16:21.654 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11Processor        : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@5c45549a:org.apache.tomcat.util.net.NioChannel@7b8b0736:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55394]], Status in: [OPEN_READ], State out: [CLOSED]
+2023-11-09 18:16:21.655 DEBUG --- [nio-8020-exec-1] o.a.c.h.Http11NioProtocol      : Pushed Processor [org.apache.coyote.http11.Http11Processor@1794880f]
+2023-11-09 18:16:21.655 DEBUG --- [nio-8020-exec-1] o.a.t.u.t.LimitLatch           : Counting down[http-nio-8020-exec-1] latch=2
+2023-11-09 18:16:21.655 DEBUG --- [nio-8020-exec-1] o.a.t.u.n.NioEndpoint          : Calling [org.apache.tomcat.util.net.NioEndpoint@45d41131].closeSocket([org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@5c45549a:org.apache.tomcat.util.net.NioChannel@7b8b0736:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55394]])
+2023-11-09 18:16:21.676 DEBUG --- [nio-8020-exec-3] o.a.t.u.h.Parameters           : Set query string encoding to UTF-8
+2023-11-09 18:16:21.679 DEBUG --- [nio-8020-exec-3] o.a.c.a.AuthenticatorBase      : Security checking request POST /issue/project
+2023-11-09 18:16:21.679 DEBUG --- [nio-8020-exec-3] o.a.c.r.RealmBase              :   No applicable constraints defined
+2023-11-09 18:16:21.686 DEBUG --- [nio-8020-exec-3] o.a.c.a.j.AuthConfigFactoryImpl : Loading persistent provider registrations from [C:\Users\86152\AppData\Local\Temp\tomcat.8020.10427062430268103050\conf\jaspic-providers.xml]
+2023-11-09 18:16:21.687 DEBUG --- [nio-8020-exec-3] o.a.c.a.AuthenticatorBase      : Not subject to any constraint
+2023-11-09 18:16:21.689 INFO  --- [nio-8020-exec-3] o.a.c.c.C.[.[.[/issue]         : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-09 18:16:29.772 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11InputBuffer      : Before fill(): parsingHeader: [true], parsingRequestLine: [true], parsingRequestLinePhase: [0], parsingRequestLineStart: [0], byteBuffer.position(): [0], byteBuffer.limit(): [0], end: [227]
+2023-11-09 18:16:29.772 DEBUG --- [nio-8020-exec-3] o.a.t.u.n.SocketWrapperBase    : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Read from buffer: [0]
+2023-11-09 18:16:29.772 DEBUG --- [nio-8020-exec-3] o.a.t.u.n.NioEndpoint          : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Read direct from socket: [0]
+2023-11-09 18:16:29.772 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11InputBuffer      : Received []
+2023-11-09 18:16:29.772 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11Processor        : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Status in: [OPEN_READ], State out: [OPEN]
+2023-11-09 18:16:29.772 DEBUG --- [nio-8020-exec-3] o.a.c.h.Http11NioProtocol      : Pushed Processor [org.apache.coyote.http11.Http11Processor@59919d58]
+2023-11-09 18:16:29.773 DEBUG --- [nio-8020-exec-3] o.a.t.u.n.NioEndpoint          : Registered read interest for [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]]
+2023-11-09 18:16:31.726 DEBUG --- [l-1 housekeeper] c.z.h.p.HikariPool             : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-11-09 18:16:31.726 DEBUG --- [l-1 housekeeper] c.z.h.p.HikariPool             : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-11-09 18:16:50.067 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11NioProtocol      : Processing socket [org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]] with status [OPEN_READ]
+2023-11-09 18:16:50.067 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11NioProtocol      : Found processor [null] for socket [org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]]
+2023-11-09 18:16:50.067 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11NioProtocol      : Popped processor [org.apache.coyote.http11.Http11Processor@59919d58] from cache
+2023-11-09 18:16:50.068 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11InputBuffer      : Before fill(): parsingHeader: [true], parsingRequestLine: [true], parsingRequestLinePhase: [0], parsingRequestLineStart: [0], byteBuffer.position(): [0], byteBuffer.limit(): [0], end: [227]
+2023-11-09 18:16:50.068 DEBUG --- [nio-8020-exec-2] o.a.t.u.n.SocketWrapperBase    : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Read from buffer: [0]
+2023-11-09 18:16:50.068 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11Processor        : Error parsing HTTP request header
+
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1296) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1184) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:785) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:348) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+2023-11-09 18:16:50.068 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11Processor        : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1296) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1184) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:785) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:348) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+2023-11-09 18:16:50.069 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11Processor        : Socket: [org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]], Status in: [OPEN_READ], State out: [CLOSED]
+2023-11-09 18:16:50.069 DEBUG --- [nio-8020-exec-2] o.a.c.h.Http11NioProtocol      : Pushed Processor [org.apache.coyote.http11.Http11Processor@59919d58]
+2023-11-09 18:16:50.069 DEBUG --- [nio-8020-exec-2] o.a.t.u.t.LimitLatch           : Counting down[http-nio-8020-exec-2] latch=1
+2023-11-09 18:16:50.070 DEBUG --- [nio-8020-exec-2] o.a.t.u.n.NioEndpoint          : Calling [org.apache.tomcat.util.net.NioEndpoint@45d41131].closeSocket([org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper@371fbc93:org.apache.tomcat.util.net.NioChannel@2fdfcb26:java.nio.channels.SocketChannel[connected local=/[0:0:0:0:0:0:0:1]:8020 remote=/[0:0:0:0:0:0:0:1]:55395]])
+2023-11-09 18:16:52.545 INFO  --- [bboShutdownHook] o.a.d.c.DubboShutdownHook      :  [DUBBO] Run shutdown hook now., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.545 WARN  --- [       Thread-9] c.a.n.c.n.NotifyCenter         : [NotifyCenter] Start destroying Publisher
+2023-11-09 18:16:52.545 WARN  --- [       Thread-4] c.a.n.c.h.HttpClientBeanHolder : [HttpClientBeanHolder] Start destroying common HttpClient
+2023-11-09 18:16:52.546 WARN  --- [       Thread-9] c.a.n.c.n.NotifyCenter         : [NotifyCenter] Destruction of the end
+2023-11-09 18:16:52.546 WARN  --- [       Thread-4] c.a.n.c.h.HttpClientBeanHolder : [HttpClientBeanHolder] Destruction of the end
+2023-11-09 18:16:52.548 INFO  --- [bboShutdownHook] o.a.d.c.DubboShutdownHook      :  [DUBBO] Waiting for modules(Dubbo Application[1.1](goya-issue)) managed by Spring to be shutdown., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.548 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.1] is stopping., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.550 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.1] has stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.550 INFO  --- [ionShutdownHook] o.a.d.r.m.FrameworkModel       :  [DUBBO] Reset global default application from Dubbo Application[1.1](goya-issue) to null, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.551 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.1](goya-issue) is stopping., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.551 INFO  --- [ionShutdownHook] o.a.d.r.p.d.DubboProtocol      :  [DUBBO] Destroying protocol [DubboProtocol] ..., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.551 INFO  --- [ionShutdownHook] o.a.d.r.p.d.DubboProtocol      :  [DUBBO] Closing dubbo server: /192.168.150.1:20880, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:52.552 INFO  --- [ionShutdownHook] o.a.d.r.t.AbstractServer       :  [DUBBO] Close NettyServer bind /0.0.0.0:20880, export /192.168.150.1:20880, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.602 INFO  --- [ionShutdownHook] o.a.d.r.p.d.DubboProtocol      :  [DUBBO] Unexport service: dubbo://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.603 INFO  --- [ionShutdownHook] o.a.d.q.s.Server               :  [DUBBO] qos-server stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.604 INFO  --- [ionShutdownHook] o.a.d.r.p.i.InjvmProtocol      :  [DUBBO] Unexport service: injvm://127.0.0.1/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&exporter.listener=injvm&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.604 INFO  --- [ionShutdownHook] o.a.d.q.s.Server               :  [DUBBO] qos-server stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.604 INFO  --- [ionShutdownHook] o.a.d.r.n.NacosRegistry        :  [DUBBO] Unregister: dubbo://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?application=goya-issue&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&prefer.serialization=fastjson2,hessian2&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.607 INFO  --- [ionShutdownHook] o.a.d.r.n.NacosRegistry        :  [DUBBO] Unsubscribe: provider://192.168.150.1:20880/org.apache.dubbo.metadata.MetadataService?anyhost=true&application=goya-issue&background=false&bind.ip=192.168.150.1&bind.port=20880&category=configurators&check=false&delay=0&deprecated=false&dubbo=2.0.2&dynamic=true&executor-management-mode=isolation&file-cache=true&generic=false&getAndListenInstanceMetadata.1.callback=true&getAndListenInstanceMetadata.return=true&getAndListenInstanceMetadata.sent=true&group=goya-issue&interface=org.apache.dubbo.metadata.MetadataService&methods=exportInstanceMetadata,getAndListenInstanceMetadata,getExportedServiceURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getExportedURLs,getInstanceMetadataChangedListenerMap,getMetadataInfo,getMetadataInfos,getMetadataURL,getServiceDefinition,getServiceDefinition,getSubscribedURLs,isMetadataService,serviceName,toSortedStrings,toSortedStrings,version&pid=11372&prefer.serialization=fastjson2,hessian2&qos.enable=true&register=false&release=3.2.2&revision=3.2.2&service-name-mapping=true&side=provider&timestamp=1699524965766&version=1.0.0, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.612 INFO  --- [ionShutdownHook] o.a.d.q.s.Server               :  [DUBBO] qos-server stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.614 INFO  --- [ionShutdownHook] o.a.d.q.s.Server               :  [DUBBO] qos-server stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.614 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.0] is stopping., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.614 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.1.0] has stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.615 INFO  --- [ionShutdownHook] o.a.d.r.s.RegistryManager      :  [DUBBO] Close all registries [nacos://192.168.159.128:8848/org.apache.dubbo.registry.RegistryService?REGISTRY_CLUSTER=internal-metadata-registry&application=goya-issue&dubbo=2.0.2&executor-management-mode=isolation&file-cache=true&interface=org.apache.dubbo.registry.RegistryService&pid=11372&qos.enable=true&release=3.2.2, nacos://192.168.159.128:8848/org.apache.dubbo.registry.RegistryService?REGISTRY_CLUSTER=internal-metadata-registry&application=goya-issue&dubbo=2.0.2&executor-management-mode=isolation&file-cache=true&interface=org.apache.dubbo.registry.RegistryService&pid=11372&qos.enable=true&release=3.2.2], dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.624 INFO  --- [ionShutdownHook] o.a.d.r.n.NacosRegistry        :  [DUBBO] Destroy registry:nacos://192.168.159.128:8848/org.apache.dubbo.registry.RegistryService?REGISTRY_CLUSTER=internal-metadata-registry&application=goya-issue&dubbo=2.0.2&executor-management-mode=isolation&file-cache=true&interface=org.apache.dubbo.registry.RegistryService&pid=11372&qos.enable=true&release=3.2.2, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.626 INFO  --- [ionShutdownHook] o.a.d.c.t.m.DefaultExecutorRepository :  [DUBBO] destroying application executor repository .., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.628 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.1](goya-issue) has stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.631 INFO  --- [ionShutdownHook] o.a.d.r.m.FrameworkModel       :  [DUBBO] Destroying default framework model: Dubbo Framework[1], dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.631 INFO  --- [ionShutdownHook] o.a.d.r.m.FrameworkModel       :  [DUBBO] Dubbo Framework[1] is destroying ..., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.631 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.0](DUBBO_INTERNAL_APPLICATION) is stopping., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.632 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.0.0] is stopping., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.632 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultModuleDeployer :  [DUBBO] Dubbo Module[1.0.0] has stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.632 INFO  --- [ionShutdownHook] o.a.d.r.s.RegistryManager      :  [DUBBO] Close all registries [], dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.632 INFO  --- [ionShutdownHook] o.a.d.c.t.m.DefaultExecutorRepository :  [DUBBO] destroying application executor repository .., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.632 INFO  --- [ionShutdownHook] o.a.d.c.d.DefaultApplicationDeployer :  [DUBBO] Dubbo Application[1.0](DUBBO_INTERNAL_APPLICATION) has stopped., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.633 INFO  --- [ionShutdownHook] o.a.d.r.m.FrameworkModel       :  [DUBBO] Dubbo Framework[1] is destroyed, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.633 INFO  --- [ionShutdownHook] o.a.d.r.m.FrameworkModel       :  [DUBBO] Reset global default framework from Dubbo Framework[1] to null, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.633 INFO  --- [ionShutdownHook] o.a.d.c.r.GlobalResourcesRepository :  [DUBBO] Destroying global resources ..., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.633 INFO  --- [ionShutdownHook] o.a.d.c.r.GlobalResourcesRepository :  [DUBBO] Dubbo is completely destroyed, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.633 INFO  --- [ionShutdownHook] o.a.d.c.t.m.FrameworkExecutorRepository :  [DUBBO] destroying framework executor repository .., dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.634 INFO  --- [ionShutdownHook] o.a.d.c.s.c.DubboSpringInitializer :  [DUBBO] Unbind Dubbo Module[1.1.1] from spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@5ffad478, dubbo version: 3.2.2, current host: 192.168.150.1
+2023-11-09 18:16:54.660 INFO  --- [ionShutdownHook] c.a.c.n.r.NacosServiceRegistry : De-registering from Nacos Server now...
+2023-11-09 18:16:54.665 INFO  --- [ionShutdownHook] c.a.c.n.r.NacosServiceRegistry : De-registration finished.
+2023-11-09 18:16:54.673 INFO  --- [ionShutdownHook] c.z.h.HikariDataSource         : HikariPool-1 - Shutdown initiated...
+2023-11-09 18:16:54.673 DEBUG --- [ionShutdownHook] c.z.h.p.HikariPool             : HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+2023-11-09 18:16:54.674 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@45678c1d: (connection evicted)
+2023-11-09 18:16:54.685 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3f2030a1: (connection evicted)
+2023-11-09 18:16:54.700 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@1abfe022: (connection evicted)
+2023-11-09 18:16:54.714 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@47461539: (connection evicted)
+2023-11-09 18:16:54.728 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@12b26867: (connection evicted)
+2023-11-09 18:16:54.729 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4492092c: (connection evicted)
+2023-11-09 18:16:54.731 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@67277080: (connection evicted)
+2023-11-09 18:16:54.732 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@75d2335f: (connection evicted)
+2023-11-09 18:16:54.733 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4ea20a93: (connection evicted)
+2023-11-09 18:16:54.734 DEBUG --- [nnection closer] c.z.h.p.PoolBase               : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3292634b: (connection evicted)
+2023-11-09 18:16:54.736 DEBUG --- [ionShutdownHook] c.z.h.p.HikariPool             : HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2023-11-09 18:16:54.736 INFO  --- [ionShutdownHook] c.z.h.HikariDataSource         : HikariPool-1 - Shutdown completed.
