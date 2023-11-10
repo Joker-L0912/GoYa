@@ -58,10 +58,14 @@ public class Project extends BaseModel implements Serializable {
     /**
      * 项目类型
      */
-    @ManyToOne(targetEntity = ProjectCategory.class)
-    @JoinColumn(name = "category_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
-            ConstraintMode.NO_CONSTRAINT))
-    private ProjectCategory projectCategory;
+    @Column(name = "category", columnDefinition = "VARCHAR(50) COMMENT '项目类别'")
+    private String category;
+
+    /**
+     * 项目类别
+     */
+    @Column(name = "type", columnDefinition = "VARCHAR(50) COMMENT '项目类型'")
+    private String type;
 
     /**
      * 项目主管
@@ -69,13 +73,6 @@ public class Project extends BaseModel implements Serializable {
     @Column(name = "manager", columnDefinition = "VARCHAR(50) COMMENT '项目主管'")
     private String manager;
 
-    /**
-     * 项目类别
-     */
-    @ManyToOne(targetEntity = ProjectType.class)
-    @JoinColumn(name = "type_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
-            ConstraintMode.NO_CONSTRAINT))
-    private ProjectType projectType;
 
     /**
      * 项目状态

@@ -39,7 +39,7 @@ public class BaseModel {
     @LastModifiedDate
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @Column(name = "update_at", columnDefinition = "datetime(3)")
+    @Column(name = "updated_at", columnDefinition = "datetime(3)")
     private Date updatedAt;
 
     /**

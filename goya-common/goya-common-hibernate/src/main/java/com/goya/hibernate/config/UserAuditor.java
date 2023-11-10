@@ -1,4 +1,4 @@
-package com.goya.issue.service.config;
+package com.goya.hibernate.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -14,6 +14,6 @@ public class UserAuditor implements AuditorAware<String> {
 
     @Override
     public Optional<String> getCurrentAuditor() {
-        return Optional.of("limoum0u");
+        return Optional.of("lizihan");
     }
 }
