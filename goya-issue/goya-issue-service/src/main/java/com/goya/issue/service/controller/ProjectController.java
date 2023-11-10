@@ -34,4 +34,12 @@ public class ProjectController {
         return projectService.update(project);
     }
 
+    /**
+     * 根据 id 查询
+     */
+    @GetMapping("/{id}")
+    public Project findById(@PathVariable Long id) {
+        return projectService.findById(id);
+    }
+
 }

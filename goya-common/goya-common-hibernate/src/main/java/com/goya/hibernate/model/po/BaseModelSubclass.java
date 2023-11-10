@@ -1,9 +1,8 @@
-package com.goya.issue.model.po;
+package com.goya.hibernate.model.po;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,16 +14,11 @@ import java.util.Date;
 
 /**
  * @author limoum0u
- * @date 23/10/15 15:37
+ * @date 23/11/10 15:49
  */
-
-/**
- * 公共实体类
- */
-@MappedSuperclass
 @Data
 @EntityListeners(value = AuditingEntityListener.class)
-public class BaseModel {
+public class BaseModelSubclass {
     /**
      * created_at
      */

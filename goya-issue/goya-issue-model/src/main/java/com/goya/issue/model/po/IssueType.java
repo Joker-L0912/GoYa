@@ -1,5 +1,6 @@
 package com.goya.issue.model.po;
 
+import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
 
