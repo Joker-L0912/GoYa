@@ -2,11 +2,8 @@ package com.goya.issue.service.controller;
 
 import com.goya.issue.model.po.Project;
 import com.goya.issue.service.service.ProjectService;
-import lombok.Getter;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author limoum0u
@@ -23,13 +20,18 @@ public class ProjectController {
     }
 
     @GetMapping("/list")
-    public Page<Project> list(int pageNum, int pageSize){
+    public Page<Project> list(int pageNum, int pageSize) {
         return projectService.findAll(pageNum, pageSize);
     }
 
     @PostMapping
-    public Project save(@RequestBody Project project){
+    public Project save(@RequestBody Project project) {
         return projectService.save(project);
+    }
+
+    @PutMapping
+    public Project update(@RequestBody Project project) {
+        return projectService.update(project);
     }
 
 }

@@ -2,9 +2,12 @@ package com.goya.issue.service.service;
 
 import com.goya.issue.model.po.Project;
 import com.goya.issue.service.repository.ProjectRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * @author limoum0u
@@ -26,6 +29,13 @@ public class ProjectService {
     }
 
     public Project save(Project project){
+        return projectRepository.save(project);
+    }
+
+    public Project update(Project project) {
+//        Optional<Project> projectOptional = projectRepository.findById(project.getId());
+//        Project projectDB = projectOptional.orElseThrow();
+//        BeanUtils.copyProperties(project, projectDB);
         return projectRepository.save(project);
     }
 }

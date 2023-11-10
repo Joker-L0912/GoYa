@@ -26,12 +26,6 @@ public class IssueController {
         this.issueService = issueService;
     }
 
-//    @GetMapping("/{id}")
-//    public Issue getById(@PathVariable Integer id) {
-//        Optional<Issue> optionalIssue = issueService.findById(id);
-//        return optionalIssue.get();
-//    }
-
     @GetMapping("/{name}")
     public Issue getByName(@PathVariable String name) {
         Optional<Issue> issue = issueService.findByName(name);
@@ -41,8 +35,7 @@ public class IssueController {
     @GetMapping
     public List<IssueDTO> findPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                    @RequestParam(value = "pageSize", defaultValue = "50") Integer pageSize) {
-        List<IssueDTO> page = issueService.findPagedList(pageNum, pageSize);
-        return page;
+        return issueService.findPagedList(pageNum, pageSize);
     }
 
     @GetMapping("/count")
