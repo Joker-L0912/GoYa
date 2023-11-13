@@ -22,7 +22,6 @@ import java.io.Serializable;
         @UniqueConstraint(columnNames = "name", name = "name")
 })
 @org.hibernate.annotations.Table(appliesTo = "issue", comment = "问题")
-@MappedSuperclass
 public class Issue extends BaseModel implements Serializable {
 
     @Serial

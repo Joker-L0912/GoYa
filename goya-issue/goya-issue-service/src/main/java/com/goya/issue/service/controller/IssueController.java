@@ -34,7 +34,7 @@ public class IssueController {
 
     @GetMapping
     public List<IssueDTO> findPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                   @RequestParam(value = "pageSize", defaultValue = "50") Integer pageSize) {
+                                   @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
         return issueService.findPagedList(pageNum, pageSize);
     }
 

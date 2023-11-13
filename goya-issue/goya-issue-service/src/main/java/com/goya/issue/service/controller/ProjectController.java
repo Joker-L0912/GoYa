@@ -1,5 +1,6 @@
 package com.goya.issue.service.controller;
 
+import com.goya.core.domain.Result;
 import com.goya.issue.model.po.Project;
 import com.goya.issue.service.service.ProjectService;
 import org.springframework.data.domain.Page;
@@ -40,6 +41,14 @@ public class ProjectController {
     @GetMapping("/{id}")
     public Project findById(@PathVariable Long id) {
         return projectService.findById(id);
+    }
+
+    /**
+     * 根据 id 删除
+     */
+    @DeleteMapping("/{id}")
+    public Result deleteById(@PathVariable Long id) {
+        return projectService.deleteById(id);
     }
 
 }

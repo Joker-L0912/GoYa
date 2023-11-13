@@ -1,5 +1,6 @@
 package com.goya.issue.service.service;
 
+import com.goya.core.domain.Result;
 import com.goya.issue.model.po.Project;
 import com.goya.issue.service.repository.ProjectRepository;
 import org.springframework.data.domain.Page;
@@ -35,5 +36,11 @@ public class ProjectService {
 
     public Project findById(Long id) {
         return projectRepository.findById(id).orElse(null);
+    }
+
+
+    public Result deleteById(Long id) {
+        projectRepository.deleteById(id);
+        return Result.ofSuccess();
     }
 }
