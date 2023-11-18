@@ -27,7 +27,7 @@ public class ProjectType extends BaseModel implements Serializable {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     /**
      * name
      */

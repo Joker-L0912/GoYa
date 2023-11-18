@@ -1,6 +1,7 @@
 package com.goya.issue.service.controller;
 
 import com.goya.issue.model.dto.IssueDTO;
+import com.goya.issue.model.dto.IssueReqDTO;
 import com.goya.issue.model.po.Issue;
 import com.goya.issue.service.service.IssueService;
 import org.springframework.web.bind.annotation.*;
@@ -42,4 +43,14 @@ public class IssueController {
     public Long getCount() {
         return issueService.getCount();
     }
+
+    /**
+     * 新增
+     * @return issueName
+     */
+    @PostMapping
+    public String addIssue(@RequestBody IssueReqDTO issueReqDTO) {
+        return issueService.save(issueReqDTO);
+    }
+
 }

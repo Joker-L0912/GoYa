@@ -26,10 +26,10 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 192.168.159.128:8848
+        server-addr: 192.168.159.130:8848
       config:
         # 配置中心地址
-        server-addr: 192.168.159.128:8848
+        server-addr: 192.168.159.130:8848
         group: DEFAULT_GROUP
         # 配置文件格式
         file-extension: yml
@@ -45,7 +45,7 @@ spring:
       - optional:nacos:application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
   data:
     redis:
-      host: 192.168.159.128
+      host: 192.168.159.130
       port: 6379
       password: 123321
 logging:
@@ -54,6 +54,7 @@ logging:
     com.alibaba.nacos: info
 dubbo:
   registry:
-    address: nacos://192.168.159.128:8848
-
-
+    address: nacos://192.168.159.130:8848
+    parameters:
+      namespace: dubbo
+      group: DUBBO_GROUP

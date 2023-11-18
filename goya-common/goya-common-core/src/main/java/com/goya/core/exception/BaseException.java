@@ -1,7 +1,10 @@
 package com.goya.core.exception;
 
+import com.goya.core.enums.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.io.Serial;
 
 /**
  * @author limoum0u
@@ -10,47 +13,25 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class BaseException extends RuntimeException {
+    @Serial
     private static final long serialVersionUID = 1L;
-
-    /**
-     * 所属模块
-     */
-    private String module;
-
     /**
      * 错误码
      */
     private String code;
-
-    /**
-     * 错误码对应的参数
-     */
-    private Object[] args;
-
     /**
      * 错误消息
      */
-    private String defaultMessage;
+    private String message;
 
-    public BaseException(String module, String code, Object[] args) {
-        this(module, code, args, null);
-    }
-
-    public BaseException(String module, String defaultMessage) {
-        this(module, null, null, defaultMessage);
-    }
-
-    public BaseException(String code, Object[] args) {
-        this(null, code, args, null);
-    }
-
-    public BaseException(String defaultMessage) {
-        this(null, null, null, defaultMessage);
+    public BaseException(ReturnCode returnCode) {
+        this.code = returnCode.getStatus();
+        this.message = returnCode.getMessage();
     }
 
     @Override
     public String getMessage() {
-        return defaultMessage;
+        return message;
     }
 
 }

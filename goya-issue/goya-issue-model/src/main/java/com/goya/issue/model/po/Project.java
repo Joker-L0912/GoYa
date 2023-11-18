@@ -80,4 +80,10 @@ public class Project extends BaseModel implements Serializable {
      */
     @Column(name = "status", columnDefinition = "VARCHAR(10) COMMENT '项目状态'")
     private String status;
+
+    /**
+     * 项目问题数量
+     */
+    @Column(name = "issue_count", columnDefinition = "INT COMMENT '项目问题数量' DEFAULT 0")
+    private Integer issueCount;
 }

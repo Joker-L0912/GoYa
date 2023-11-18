@@ -47,7 +47,7 @@ public class Issue extends BaseModel implements Serializable {
     @ManyToOne(targetEntity = IssueType.class)
     @JoinColumn(name = "type_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
             ConstraintMode.NO_CONSTRAINT))
-    private IssueType typeId;
+    private IssueType issueType;
 
     /**
      * 项目
@@ -55,7 +55,7 @@ public class Issue extends BaseModel implements Serializable {
     @ManyToOne(targetEntity = Project.class)
     @JoinColumn(name = "project_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
             ConstraintMode.NO_CONSTRAINT))
-    private Project projectId;
+    private Project project;
 
     /**
      * 描述
@@ -80,7 +80,7 @@ public class Issue extends BaseModel implements Serializable {
      * 解决结果
      */
     @Column(columnDefinition = "VARCHAR(255) COMMENT '解决结果'")
-    private String solutionResultId;
+    private String solutionResult;
 
     /**
      * 影响版本
@@ -88,7 +88,7 @@ public class Issue extends BaseModel implements Serializable {
     @ManyToOne(targetEntity = Version.class)
     @JoinColumn(name = "affected_version_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none",
             value = ConstraintMode.NO_CONSTRAINT))
-    private Version affectedVersionId;
+    private Version affectedVersion;
 
     /**
      * 修复版本
@@ -96,7 +96,7 @@ public class Issue extends BaseModel implements Serializable {
     @ManyToOne(targetEntity = Version.class)
     @JoinColumn(name = "fix_version_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
             ConstraintMode.NO_CONSTRAINT))
-    private Version fixVersionId;
+    private Version fixVersion;
 
     /**
      * 模块
@@ -104,7 +104,7 @@ public class Issue extends BaseModel implements Serializable {
     @ManyToOne(targetEntity = ProjectModule.class)
     @JoinColumn(name = "module_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
             ConstraintMode.NO_CONSTRAINT))
-    private ProjectModule moduleId;
+    private ProjectModule projectModule;
 
     /**
      * epic_link

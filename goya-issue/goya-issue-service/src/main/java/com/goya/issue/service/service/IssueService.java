@@ -1,20 +1,24 @@
 package com.goya.issue.service.service;
 
+import com.goya.core.enums.ReturnCode;
+import com.goya.core.exception.BaseException;
 import com.goya.issue.model.dto.IssueDTO;
-import com.goya.issue.model.po.Issue;
-import com.goya.issue.model.po.IssueType;
-import com.goya.issue.model.po.IssueType_;
-import com.goya.issue.model.po.Issue_;
+import com.goya.issue.model.dto.IssueReqDTO;
+import com.goya.issue.model.mapper.IssueMapper;
+import com.goya.issue.model.po.*;
 import com.goya.issue.service.repository.IssueRepository;
+import com.goya.issue.service.repository.ProjectRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Root;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,15 +28,19 @@ import java.util.Optional;
  * @date 23/10/15 15:49
  */
 @Service
+@Slf4j
 public class IssueService {
 
     private final IssueRepository issueRepository;
 
+    private final ProjectRepository projectRepository;
+
     @PersistenceContext
     private EntityManager entityManager;
 
-    public IssueService(IssueRepository issueRepository) {
+    public IssueService(IssueRepository issueRepository, ProjectRepository projectRepository) {
         this.issueRepository = issueRepository;
+        this.projectRepository = projectRepository;
     }
 
     public Page<Issue> findPage(Integer pageNum, Integer pageSize) {
@@ -50,7 +58,7 @@ public class IssueService {
         CriteriaQuery<IssueDTO> query = criteriaBuilder.createQuery(IssueDTO.class);
 
         Root<Issue> i = query.from(Issue.class);
-        Join<Issue, IssueType> type = i.join(Issue_.typeId);
+        Join<Issue, IssueType> type = i.join(Issue_.issueType);
 
         query.select(criteriaBuilder.construct(IssueDTO.class,
                 i.get(Issue_.id),
@@ -59,7 +67,7 @@ public class IssueService {
                 type.get(IssueType_.name).alias("type"),
                 i.get(Issue_.issuePriority),
                 i.get(Issue_.issueStatus),
-                i.get(Issue_.solutionResultId),
+                i.get(Issue_.solutionResult),
                 i.get(Issue_.reportedBy),
                 i.get(Issue_.handledBy),
                 i.get(Issue_.createdAt),
@@ -69,5 +77,17 @@ public class IssueService {
 
     public Long getCount() {
         return issueRepository.count();
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public String save(IssueReqDTO issueReqDto) {
+        Issue issue = IssueMapper.INSTANCE.toEntity(issueReqDto);
+        Optional<Project> projectOptional = projectRepository.findById(issueReqDto.getProjectId());
+        Project project = projectOptional.orElseThrow(() -> new BaseException(ReturnCode.USER_ERROR_A0400));
+        project.setIssueCount(project.getIssueCount() + 1);
+        String issueName = project.getKeyword() + "-" + project.getIssueCount();
+        issue.setName(issueName);
+        issueRepository.save(issue);
+        return issueName;
     }
 }

@@ -27,7 +27,9 @@ public class DubboRequestFilter implements Filter {
         if (RpcContext.getServiceContext().isConsumerSide()) {
             client = CommonConstants.CONSUMER;
         }
-        String baselog = "Client[" + client + "],InterfaceName=[" + invocation.getInvoker().getInterface().getSimpleName() + "],MethodName=[" + invocation.getMethodName() + "]";
+        String baselog =
+                "Client[" + client + "],InterfaceName=[" + invocation.getInvoker().getInterface().getSimpleName() +
+                        "],MethodName=[" + invocation.getMethodName() + "]";
 
         log.info("DUBBO - 服务调用: {},Parameter={}", baselog, invocation.getArguments());
 
@@ -41,7 +43,7 @@ public class DubboRequestFilter implements Filter {
         if (result.hasException() && invoker.getInterface().equals(GenericService.class)) {
             log.error("DUBBO - 服务异常: {},Exception={}", baselog, result.getException());
         } else {
-            log.info("DUBBO - 服务响应: {},SpendTime=[{}ms],Response={}", baselog, elapsed, JsonUtils.toJsonString(new Object[]{result.getValue()}));
+            log.info("DUBBO - 服务响应: {},SpendTime=[{}ms]", baselog, elapsed);
         }
         return result;
     }

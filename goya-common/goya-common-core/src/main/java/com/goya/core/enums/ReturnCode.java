@@ -5,6 +5,8 @@ package com.goya.core.enums;
  * @date 23/11/8 16:07
  */
 
+import lombok.Getter;
+
 /**
  * 阿里巴巴Java开发手册-崇山版-2020.08.03 错误码整理
  * 错误码：
@@ -15,6 +17,7 @@ package com.goya.core.enums;
  * 4. 若无法确定具体错误，选择宏观错误
  * 6. 大的错误类间的步长间距预留100
  */
+@Getter
 public enum ReturnCode {
 
     /**
@@ -272,18 +275,11 @@ public enum ReturnCode {
 
     private final String message;
 
-    private ReturnCode(String status, String description) {
+    private ReturnCode(String status, String message) {
         this.status = status;
-        this.message = description;
+        this.message = message;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 }
 
 

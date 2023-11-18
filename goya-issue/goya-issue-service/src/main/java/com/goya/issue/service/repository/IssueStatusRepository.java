@@ -5,5 +5,5 @@ import com.goya.issue.model.po.IssueStatus;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IssueStatusRepository extends BaseRepository<IssueStatus, Integer> {
+public interface IssueStatusRepository extends BaseRepository<IssueStatus, Long> {
 }

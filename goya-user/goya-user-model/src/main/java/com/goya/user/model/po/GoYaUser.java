@@ -1,28 +1,32 @@
-package com.goya.auth.model.po;
+package com.goya.user.model.po;
 
+import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @author limoum0u
  * @date 23/11/8 10:50
  */
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "user", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "user_name", name = "user_name")
+@Table(name = "user", indexes = {
+        @Index(name = "idx_goyauser_user_name", columnList = "user_name")
+}, uniqueConstraints = {
+        @UniqueConstraint(name = "user_name", columnNames = {"user_name"})
 })
 @org.hibernate.annotations.Table(appliesTo = "user", comment = "用户")
-public class GoYaUser extends BaseModel implements Serializable  {
+public class GoYaUser extends BaseModel implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -113,4 +117,24 @@ public class GoYaUser extends BaseModel implements Serializable  {
      */
     @Column(name = "remark")
     private String remark;
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ?
+                ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ?
+                ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        GoYaUser goYaUser = (GoYaUser) o;
+        return getUserId() != null && Objects.equals(getUserId(), goYaUser.getUserId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ?
+                ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() :
+                getClass().hashCode();
+    }
 }

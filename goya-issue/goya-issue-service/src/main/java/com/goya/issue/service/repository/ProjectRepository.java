@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 /**
  * @author limoum0u
  * @date 23/11/9 17:16
@@ -22,5 +24,4 @@ public interface ProjectRepository extends BaseRepository<Project, Long> {
     @Modifying
     @Query("update Project p set p.name = ?1 where p.id = ?2")
     int updateNameById(String name, Long id);
-
 }

@@ -1,8 +1,9 @@
 package com.goya.auth.provider.service;
 
 import com.goya.auth.model.dto.CustomUser;
-import com.goya.auth.model.po.GoYaUser;
-import com.goya.auth.provider.repository.UserRepository;
+import com.goya.user.api.service.RemoteUserService;
+import com.goya.user.model.po.GoYaUser;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,15 +19,12 @@ import java.util.Objects;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserRepository userRepository;
-
-    public UserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @DubboReference
+    private RemoteUserService remoteUserService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        GoYaUser goyaUser = userRepository.getByUsername(username);
+        GoYaUser goyaUser = remoteUserService.getUserInfo(username);
         if (Objects.isNull(goyaUser)) {
             throw new UsernameNotFoundException("用户名不存在！");
         }

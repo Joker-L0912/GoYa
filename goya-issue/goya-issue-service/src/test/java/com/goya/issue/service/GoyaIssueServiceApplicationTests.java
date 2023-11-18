@@ -38,7 +38,7 @@ class GoyaIssueServiceApplicationTests {
         CriteriaQuery<IssueDTO> query = criteriaBuilder.createQuery(IssueDTO.class);
 
         Root<Issue> i = query.from(Issue.class);
-        Join<Issue, IssueType> type = i.join(Issue_.typeId);
+        Join<Issue, IssueType> type = i.join(Issue_.issueType);
 
         query.select(criteriaBuilder.construct(IssueDTO.class,
                 i.get(Issue_.id),
@@ -47,7 +47,7 @@ class GoyaIssueServiceApplicationTests {
                 type.get(IssueType_.name).alias("type"),
                 i.get(Issue_.issuePriority),
                 i.get(Issue_.issueStatus),
-                i.get(Issue_.solutionResultId),
+                i.get(Issue_.solutionResult),
                 i.get(Issue_.reportedBy),
                 i.get(Issue_.handledBy),
                 i.get(Issue_.createdAt),
