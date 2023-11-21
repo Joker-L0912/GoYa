@@ -60,8 +60,7 @@ public class WebSecurityConfig {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
         daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
-        ProviderManager pm = new ProviderManager(daoAuthenticationProvider);
-        return pm;
+        return new ProviderManager(daoAuthenticationProvider);
     }
 
 

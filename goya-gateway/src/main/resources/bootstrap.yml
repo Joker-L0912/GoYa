@@ -1,24 +1,8 @@
 server:
-  port: 8030
-  servlet:
-    context-path: /user
-    encoding:
-      charset: utf-8
-      enabled: true
-      force: true
+  port: 8080
 spring:
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    show-sql: true
-    open-in-view: false
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-    hibernate:
-      ddl-auto: update
   application:
-    name: goya-user
+    name: goya-gateway
   profiles:
     # 环境配置
     active: dev
@@ -38,26 +22,21 @@ spring:
         # 配置文件格式
         file-extension: yml
         namespace: public
-    sentinel:
-      # 取消控制台懒加载
-      eager: true
-      transport:
-        # 控制台地址
-        dashboard: 127.0.0.1:8718
+    gateway:
+      routes:
+        - id: 1
+          uri: lb://goya-user
+          predicates:
+            - Path=/user/**
   config:
     import:
       - optional:nacos:application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-  data:
-    redis:
-      host: 192.168.195.130
-      port: 6379
-      password: 123321
+#      - optional:nacos:gateway-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
 logging:
   level:
     root: debug
     com.alibaba.nacos: info
-  file:
-    path: /var/log/goya-user
 dubbo:
   registry:
     address: nacos://192.168.159.130:8848

@@ -84,6 +84,8 @@ public class IssueService {
         Issue issue = IssueMapper.INSTANCE.toEntity(issueReqDto);
         Optional<Project> projectOptional = projectRepository.findById(issueReqDto.getProjectId());
         Project project = projectOptional.orElseThrow(() -> new BaseException(ReturnCode.USER_ERROR_A0400));
+        // 生成 issue 的名称 KEY + 数量
+        //TODO: 多个线程同时操作这里可能会出现问题
         project.setIssueCount(project.getIssueCount() + 1);
         String issueName = project.getKeyword() + "-" + project.getIssueCount();
         issue.setName(issueName);

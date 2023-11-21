@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.goya.user</groupId>
-        <artifactId>goya-user</artifactId>
+        <groupId>com.goya.menu</groupId>
+        <artifactId>goya-menu</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.goya.user.provider</groupId>
-    <artifactId>goya-user-provider</artifactId>
+    <groupId>com.goya.menu.provider</groupId>
+    <artifactId>goya-menu-provider</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -112,15 +112,12 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+        <dependency>
+            <groupId>com.goya.menu.model</groupId>
+            <artifactId>goya-menu-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

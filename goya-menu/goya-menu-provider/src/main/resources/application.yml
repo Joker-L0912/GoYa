@@ -1,7 +1,7 @@
 server:
-  port: 8030
+  port: 8040
   servlet:
-    context-path: /user
+    context-path: /menu
     encoding:
       charset: utf-8
       enabled: true
@@ -18,14 +18,10 @@ spring:
     hibernate:
       ddl-auto: update
   application:
-    name: goya-user
+    name: goya-menu
   profiles:
     # 环境配置
     active: dev
-  security:
-    user:
-      name: admin
-      password: 123456
   cloud:
     nacos:
       discovery:
@@ -56,11 +52,8 @@ logging:
   level:
     root: debug
     com.alibaba.nacos: info
-  file:
-    path: /var/log/goya-user
 dubbo:
   registry:
     address: nacos://192.168.159.130:8848
-    parameters:
-      namespace: dubbo
-      group: DUBBO_GROUP
+
+
