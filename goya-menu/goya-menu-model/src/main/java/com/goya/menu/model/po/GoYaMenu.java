@@ -20,7 +20,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "goya_menu", uniqueConstraints = {
         @UniqueConstraint(columnNames = "name", name = "name")
@@ -72,38 +71,8 @@ public class GoYaMenu extends BaseModel implements Serializable {
     /**
      * 父菜单ID，一级菜单为0
      */
-    @Column(name="parentId")
+    @Column(name="parent_id")
     private Integer parentId;
-
-    /**
-     * 授权(如：sys:user:create)
-     */
-    @Column(name="permission")
-    private String permission;
-
-    /**
-     * 创建时间
-     */
-    @Column(name="createdTime")
-    private Date createdTime;
-
-    /**
-     * 修改时间
-     */
-    @Column(name="modifiedTime")
-    private Date modifiedTime;
-
-    /**
-     * 创建用户
-     */
-    @Column(name="createdUser")
-    private String createdUser;
-
-    /**
-     * 修改用户
-     */
-    @Column(name="modifiedUser")
-    private String modifiedUser;
 
     @Override
     public final boolean equals(Object o) {

@@ -3,7 +3,7 @@ package com.goya.auth.provider.config;
 import com.goya.auth.provider.filter.AuthenticationFilter;
 import com.goya.auth.provider.filter.TokenAuthenticationFilter;
 import com.goya.auth.provider.service.UserDetailsServiceImpl;
-import com.goya.auth.provider.utils.RedisUtils;
+import com.goya.redis.utils.RedisUtils;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -62,6 +62,4 @@ public class WebSecurityConfig {
         daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
         return new ProviderManager(daoAuthenticationProvider);
     }
-
-
 }

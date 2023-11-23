@@ -2,8 +2,8 @@ package com.goya.auth.provider.filter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.goya.auth.model.dto.CustomUser;
-import com.goya.auth.provider.utils.RedisUtils;
 import com.goya.core.utils.JsonUtils;
+import com.goya.redis.utils.RedisUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

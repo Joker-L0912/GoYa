@@ -1,8 +1,8 @@
 package com.goya.auth.provider.filter;
 
 import com.goya.auth.model.dto.CustomUser;
-import com.goya.auth.provider.utils.RedisUtils;
 import com.goya.core.utils.JsonUtils;
+import com.goya.redis.utils.RedisUtils;
 import jakarta.annotation.Resource;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

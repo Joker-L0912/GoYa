@@ -28,6 +28,10 @@ spring:
           uri: lb://goya-user
           predicates:
             - Path=/user/**
+        - id: 2
+          uri: lb://goya-auth
+          predicates:
+              - Path=/auth/**
   config:
     import:
       - optional:nacos:application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
@@ -43,3 +47,8 @@ dubbo:
     parameters:
       namespace: dubbo
       group: DUBBO_GROUP
+goya:
+  gateway:
+    ignore:
+      whites:
+        - /auth/login

@@ -35,5 +35,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         BeanUtils.copyProperties(goyaUser, customUser);
         return customUser;
     }
-
 }

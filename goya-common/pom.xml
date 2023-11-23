@@ -15,6 +15,8 @@
         <module>goya-common-core</module>
         <module>goya-common-dubbo</module>
         <module>goya-common-hibernate</module>
+        <module>goya-common-security</module>
+        <module>goya-common-redis</module>
     </modules>
 
     <properties>

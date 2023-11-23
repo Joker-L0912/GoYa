@@ -1,4 +1,4 @@
-package com.goya.auth.provider.utils;
+package com.goya.redis.utils;
 
 import lombok.Getter;
 import org.springframework.data.redis.connection.DataType;
@@ -13,10 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author limoum0u
- * @date 23/11/7 23:25
+ * @date 23/11/23 16:52
  */
 @Getter
-@Component
 public class RedisUtils {
 
     private final StringRedisTemplate redisTemplate;
