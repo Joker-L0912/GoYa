@@ -1,6 +1,6 @@
 package com.goya.issue.service.controller;
 
-import com.goya.issue.model.dto.IssueDTO;
+import com.goya.issue.model.dto.IssueListItemDTO;
 import com.goya.issue.model.dto.IssueReqDTO;
 import com.goya.issue.model.po.Issue;
 import com.goya.issue.service.service.IssueService;
@@ -34,8 +34,8 @@ public class IssueController {
     }
 
     @GetMapping
-    public List<IssueDTO> findPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                   @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
+    public List<IssueListItemDTO> findPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                           @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
         return issueService.findPagedList(pageNum, pageSize);
     }
 

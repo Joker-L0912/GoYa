@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-public class IssueDTO {
+public class IssueListItemDTO {
     private Long id;
 
     private String name;
@@ -53,6 +53,11 @@ public class IssueDTO {
      * 经办人
      */
     private String handledBy;
+
+    /**
+     * 项目
+     */
+    private String projectName;
 
     /**
      * created_at

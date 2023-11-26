@@ -2,7 +2,7 @@ package com.goya.issue.service.service;
 
 import com.goya.core.enums.ReturnCode;
 import com.goya.core.exception.BaseException;
-import com.goya.issue.model.dto.IssueDTO;
+import com.goya.issue.model.dto.IssueListItemDTO;
 import com.goya.issue.model.dto.IssueReqDTO;
 import com.goya.issue.model.mapper.IssueMapper;
 import com.goya.issue.model.po.*;
@@ -53,19 +53,20 @@ public class IssueService {
         return issueRepository.findByName(name);
     }
 
-    public List<IssueDTO> findPagedList(Integer pageNum, Integer pageSize) {
+    public List<IssueListItemDTO> findPagedList(Integer pageNum, Integer pageSize) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<IssueDTO> query = criteriaBuilder.createQuery(IssueDTO.class);
+        CriteriaQuery<IssueListItemDTO> query = criteriaBuilder.createQuery(IssueListItemDTO.class);
 
         Root<Issue> i = query.from(Issue.class);
         Join<Issue, IssueType> type = i.join(Issue_.issueType);
 
-        query.select(criteriaBuilder.construct(IssueDTO.class,
+        query.select(criteriaBuilder.construct(IssueListItemDTO.class,
                 i.get(Issue_.id),
                 i.get(Issue_.name).alias("name"),
                 i.get(Issue_.gist),
                 type.get(IssueType_.name).alias("type"),
                 i.get(Issue_.issuePriority),
+                i.get(Issue_.project).get(Project_.name).alias("projectName"),
                 i.get(Issue_.issueStatus),
                 i.get(Issue_.solutionResult),
                 i.get(Issue_.reportedBy),
