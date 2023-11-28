@@ -59,6 +59,7 @@ public class IssueService {
 
         Root<Issue> i = query.from(Issue.class);
         Join<Issue, IssueType> type = i.join(Issue_.issueType);
+        Join<Issue, Project> projectJoin = i.join(Issue_.project);
 
         query.select(criteriaBuilder.construct(IssueListItemDTO.class,
                 i.get(Issue_.id),
@@ -66,8 +67,8 @@ public class IssueService {
                 i.get(Issue_.gist),
                 type.get(IssueType_.name).alias("type"),
                 i.get(Issue_.issuePriority),
-                i.get(Issue_.project).get(Project_.name).alias("projectName"),
                 i.get(Issue_.issueStatus),
+                projectJoin.get(Project_.name).alias("projectName"),
                 i.get(Issue_.solutionResult),
                 i.get(Issue_.reportedBy),
                 i.get(Issue_.handledBy),

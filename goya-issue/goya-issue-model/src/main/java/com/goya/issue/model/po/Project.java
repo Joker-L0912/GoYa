@@ -18,7 +18,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "project", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "name", name = "name")
+        @UniqueConstraint(columnNames = "project_name", name = "project_name")
 })
 @org.hibernate.annotations.Table(appliesTo = "project", comment = "项目表")
 public class Project extends BaseModel implements Serializable {
@@ -35,7 +35,7 @@ public class Project extends BaseModel implements Serializable {
     /**
      * name
      */
-    @Column(name = "name")
+    @Column(name = "project_name")
     private String name;
 
     /**

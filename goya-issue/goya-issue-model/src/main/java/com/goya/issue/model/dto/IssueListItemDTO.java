@@ -32,12 +32,14 @@ public class IssueListItemDTO {
      */
     private String issuePriority;
 //    private Integer priorityId;
-
     /**
      * 状态
      */
     private String issueStatus;
-
+    /**
+     * 项目
+     */
+    private String projectName;
     /**
      * 解决结果
      */
@@ -53,12 +55,6 @@ public class IssueListItemDTO {
      * 经办人
      */
     private String handledBy;
-
-    /**
-     * 项目
-     */
-    private String projectName;
-
     /**
      * created_at
      */
