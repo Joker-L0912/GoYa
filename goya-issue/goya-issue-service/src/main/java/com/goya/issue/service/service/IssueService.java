@@ -49,11 +49,11 @@ public class IssueService {
         return issuePage;
     }
 
-    public Optional<Issue> findByName(String name) {
-        return issueRepository.findByName(name);
+    public Optional<Issue> findByName(String name, Long projectId) {
+        return issueRepository.findByNameAndProjectId(name, projectId);
     }
 
-    public List<IssueListItemDTO> findPagedList(Integer pageNum, Integer pageSize) {
+    public List<IssueListItemDTO> findPagedList(Integer pageNum, Integer pageSize, Long projectId) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<IssueListItemDTO> query = criteriaBuilder.createQuery(IssueListItemDTO.class);
 
@@ -73,11 +73,12 @@ public class IssueService {
                 i.get(Issue_.handledBy),
                 i.get(Issue_.createdAt),
                 i.get(Issue_.createdBy)));
+        query.where(criteriaBuilder.equal(i.get(Issue_.project).get(Project_.id), projectId));
         return entityManager.createQuery(query).setFirstResult((pageNum - 1) * pageSize).setMaxResults(pageNum * pageSize).getResultList();
     }
 
-    public Long getCount() {
-        return issueRepository.count();
+    public Long getCount(Long projectId) {
+        return issueRepository.countByProjectId(projectId);
     }
 
     @Transactional(rollbackFor = Exception.class)

@@ -12,5 +12,7 @@ import java.util.Optional;
  */
 @Repository
 public interface IssueRepository extends BaseRepository<Issue, Long> {
-    Optional<Issue> findByName(String name);
+    Optional<Issue> findByNameAndProjectId(String name, Long projectId);
+
+    Long countByProjectId(Long projectId);
 }

@@ -28,24 +28,26 @@ public class IssueController {
     }
 
     @GetMapping("/{name}")
-    public Issue getByName(@PathVariable String name) {
-        Optional<Issue> issue = issueService.findByName(name);
+    public Issue getByName(@PathVariable String name, @RequestParam Long projectId) {
+        Optional<Issue> issue = issueService.findByName(name, projectId);
         return issue.get();
     }
 
     @GetMapping
-    public List<IssueListItemDTO> findPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+    public List<IssueListItemDTO> findPage(Long projectId,
+                                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                            @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
-        return issueService.findPagedList(pageNum, pageSize);
+        return issueService.findPagedList(pageNum, pageSize, projectId);
     }
 
     @GetMapping("/count")
-    public Long getCount() {
-        return issueService.getCount();
+    public Long getCount(@RequestParam Long projectId) {
+        return issueService.getCount(projectId);
     }
 
     /**
      * 新增
+     *
      * @return issueName
      */
     @PostMapping
