@@ -1,0 +1,65 @@
+server:
+  port: 8040
+  servlet:
+    context-path: /workflow
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  application:
+    name: goya-user
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 192.168.159.130:8848
+      config:
+        # 配置中心地址
+        server-addr: 192.168.159.130:8848
+        group: DEFAULT_GROUP
+        # 配置文件格式
+        file-extension: yml
+        namespace: public
+    sentinel:
+      # 取消控制台懒加载
+      eager: true
+      transport:
+        # 控制台地址
+        dashboard: 127.0.0.1:8718
+  config:
+    import:
+      - optional:nacos:application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  data:
+    redis:
+      host: 192.168.195.130
+      port: 6379
+      password: 123321
+logging:
+  level:
+    root: debug
+    com.alibaba.nacos: info
+  file:
+    path: /var/log/goya-user
+dubbo:
+  registry:
+    address: nacos://192.168.159.130:8848
+    parameters:
+      namespace: dubbo
+      group: DUBBO_GROUP
+
+camunda.bpm:
+  generic-properties.properties:
+    javaSerializationFormatEnabled: true
+  admin-user:
+    id: demo
+    password: demo
