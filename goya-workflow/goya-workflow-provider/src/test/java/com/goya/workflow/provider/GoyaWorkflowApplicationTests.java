@@ -1,4 +1,4 @@
-package com.goya.workflow;
+package com.goya.workflow.provider;
 
 import com.goya.core.utils.JsonUtils;
 import org.camunda.bpm.engine.IdentityService;
@@ -10,10 +10,12 @@ import org.camunda.bpm.engine.runtime.Execution;
 import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.model.bpmn.BpmnModelInstance;
 import org.camunda.bpm.model.bpmn.instance.FlowNode;
+import org.camunda.bpm.model.bpmn.instance.SequenceFlow;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,6 +83,10 @@ class GoyaWorkflowApplicationTests {
             System.out.println("Node Id: " + flowNode.getId());
             System.out.println("Node Name: " + flowNode.getName());
             System.out.println("Node Type: " + flowNode.getElementType().getTypeName());
+            Collection<SequenceFlow> outgoing = flowNode.getOutgoing();
+            for (SequenceFlow sequenceFlow : outgoing) {
+                System.out.println("SequenceFlow: " + sequenceFlow.getName());
+            }
             System.out.println("---");
         }
 

@@ -12,7 +12,7 @@ import java.util.List;
  * @date 23/11/13 11:25
  */
 @RestController
-@RequestMapping("/issuePriority")
+@RequestMapping("/priority")
 public class IssuePriorityController {
 
     private final IssuePriorityService issuePriorityService;

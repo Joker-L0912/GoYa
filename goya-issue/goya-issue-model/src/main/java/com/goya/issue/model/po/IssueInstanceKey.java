@@ -17,9 +17,8 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "issue", uniqueConstraints = {
+@Table(name = "issue_instance_rel", uniqueConstraints = {
         @UniqueConstraint(columnNames = "id", name = "id")
 })
 @org.hibernate.annotations.Table(appliesTo = "issue_instance_rel", comment = "问题流程关联表")

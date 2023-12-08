@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.goya.issue</groupId>
-        <artifactId>goya-issue</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>com.goya.workflow</groupId>
+        <artifactId>goya-workflow</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>goya-issue-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>goya-issue-service</name>
-    <description>goya-issue-service</description>
+
+    <groupId>com.goya.workflow.provider</groupId>
+    <artifactId>goya-workflow-provider</artifactId>
+
     <properties>
-        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
 
         <dependency>
@@ -95,15 +99,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.goya.issue.api</groupId>
-            <artifactId>goya-issue-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.goya.issue.model</groupId>
-            <artifactId>goya-issue-model</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.goya.workflow.api</groupId>
+            <artifactId>goya-workflow-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -115,6 +113,23 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.camunda.bpm.springboot</groupId>
+            <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+            <version>7.20.0-alpha3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.camunda.bpm.springboot</groupId>
+            <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+            <version>7.20.0-alpha3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm.springboot</groupId>
+            <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+            <version>7.20.0-alpha3</version>
         </dependency>
 
     </dependencies>

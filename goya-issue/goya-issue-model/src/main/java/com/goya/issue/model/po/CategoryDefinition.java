@@ -17,11 +17,8 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "issue", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "id", name = "id")
-})
+@Table(name = "category_def_rel")
 @org.hibernate.annotations.Table(appliesTo = "category_def_rel", comment = "类别和流程定义关联表")
 public class CategoryDefinition extends BaseModel {
 
