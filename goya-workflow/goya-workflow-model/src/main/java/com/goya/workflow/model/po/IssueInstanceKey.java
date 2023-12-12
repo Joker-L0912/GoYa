@@ -1,4 +1,4 @@
-package com.goya.issue.model.po;
+package com.goya.workflow.model.po;
 
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
@@ -11,7 +11,7 @@ import java.util.Objects;
  * @author limoum0u
  * @date 23/12/2 23:31
  */
-@ToString(callSuper = true)
+@ToString
 @Getter
 @Setter
 @RequiredArgsConstructor
@@ -19,7 +19,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @Entity
 @Table(name = "issue_instance_rel", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "id", name = "id")
+        @UniqueConstraint(name = "id", columnNames = {"id"}),
+        @UniqueConstraint(name = "uc_issueinstancekey", columnNames = {"issueName"})
 })
 @org.hibernate.annotations.Table(appliesTo = "issue_instance_rel", comment = "问题流程关联表")
 public class IssueInstanceKey extends BaseModel {

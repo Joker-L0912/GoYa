@@ -1,4 +1,4 @@
-package com.goya.issue.model.po;
+package com.goya.workflow.model.po;
 
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
@@ -28,7 +28,7 @@ public class CategoryDefinition extends BaseModel {
     private Long id;
 
     @Column(columnDefinition = "VARCHAR(50) COMMENT '类别key'", nullable = false)
-    private String categoryKey;
+    private Long categoryKey;
 
     @Column(columnDefinition = "VARCHAR(50) COMMENT '流程示例key'", nullable = false)
     private String processDefinitionKey;

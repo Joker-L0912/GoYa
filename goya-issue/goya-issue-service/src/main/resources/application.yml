@@ -59,5 +59,12 @@ logging:
 dubbo:
   registry:
     address: nacos://192.168.159.130:8848
+    parameters:
+      namespace: dubbo
+      group: DUBBO_GROUP
+#  consumer:
+#    check: false
+  protocol:
+    port: -1
 
 

@@ -7,6 +7,7 @@ import com.goya.issue.service.service.IssueService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -51,8 +52,8 @@ public class IssueController {
      * @return issueName
      */
     @PostMapping
-    public String addIssue(@RequestBody IssueReqDTO issueReqDTO) {
-        return issueService.save(issueReqDTO);
+    public String addIssue(@RequestBody Map<String, String> issueMap) {
+        return issueService.save(issueMap);
     }
 
 }
