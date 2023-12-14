@@ -10,7 +10,14 @@ import java.util.List;
  */
 @Data
 public class ProcInsDTO {
+
+    private String issueName;
     private String procInsId;
+
+    private String currentNodeId;
     private String currentNodeName;
-    private List<WorkFlowNode> nextLnes;
+
+    private List<WorkFlowNode> nextLines;
+
+    private WorkFlowNode selectedNode;
 }

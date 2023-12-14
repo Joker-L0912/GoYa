@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author limoum0u
  * @date 23/11/20 16:29
@@ -18,8 +20,9 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/partInfo")
-    public GoYaUserDTO getUserInfoPart(String username) {
+    @GetMapping
+    public List<GoYaUserDTO> getUserInfoPart(String username) {
         return userService.getUserInfoPart(username);
     }
+
 }

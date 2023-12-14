@@ -56,7 +56,7 @@ public class FlowNodeService {
         ProcInsDTO procInsDTO = new ProcInsDTO();
         procInsDTO.setProcInsId(processInstanceId);
         procInsDTO.setCurrentNodeName(currentNode.getName());
-        procInsDTO.setNextLnes(list);
+        procInsDTO.setNextLines(list);
         return procInsDTO;
     }
 }

@@ -96,7 +96,6 @@ public class IssueService {
         issue.setName(issueName);
         issueMap.put("issueName", issueName);
         issueRepository.save(issue);
-
         // 流程
         remoteWorkflowService.startProcess(issueMap);
         return issueName;

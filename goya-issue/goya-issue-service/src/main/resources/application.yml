@@ -62,8 +62,8 @@ dubbo:
     parameters:
       namespace: dubbo
       group: DUBBO_GROUP
-#  consumer:
-#    check: false
+  consumer:
+    check: false
   protocol:
     port: -1
 

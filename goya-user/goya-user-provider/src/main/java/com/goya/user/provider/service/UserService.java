@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author limoum0u
  * @date 23/11/18 20:41
@@ -31,7 +33,7 @@ public class UserService implements RemoteUserService {
     }
 
     // 查询用户的部分信息
-    public GoYaUserDTO getUserInfoPart(String username) throws UserException {
+    public List<GoYaUserDTO> getUserInfoPart(String username) throws UserException {
         return userRepository.findByUsername(username);
     }
 
