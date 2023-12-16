@@ -30,18 +30,25 @@ public class IssueInstanceKey extends BaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "VARCHAR(50) COMMENT '问题key'", nullable = false)
+    @Column(columnDefinition = "VARCHAR(50) COMMENT '问题name'", nullable = false)
     private String issueName;
 
     @Column(columnDefinition = "VARCHAR(50) COMMENT '流程实例key'", nullable = false)
     private String processInstanceKey;
 
+    @Column(columnDefinition = "VARCHAR(50) COMMENT '问题状态'")
+    private String issueStatus;
+
+
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
-        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
-        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ?
+                ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ?
+                ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         IssueInstanceKey that = (IssueInstanceKey) o;
         return getId() != null && Objects.equals(getId(), that.getId());
@@ -49,6 +56,8 @@ public class IssueInstanceKey extends BaseModel {
 
     @Override
     public final int hashCode() {
-        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+        return this instanceof HibernateProxy ?
+                ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() :
+                getClass().hashCode();
     }
 }

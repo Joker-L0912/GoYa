@@ -1,7 +1,7 @@
 package com.goya.workflow.provider.service;
 
-import com.goya.workflow.model.dto.ProcInsDTO;
-import com.goya.workflow.model.dto.WorkFlowNode;
+import com.goya.workflow.model.dto.TaskParam;
+import com.goya.workflow.model.po.WorkFlowNode;
 import com.goya.workflow.provider.repository.IssueInstanceKeyRepository;
 import org.camunda.bpm.engine.RepositoryService;
 import org.camunda.bpm.engine.RuntimeService;
@@ -39,7 +39,7 @@ public class FlowNodeService {
         this.issueInstanceKeyRepository = issueInstanceKeyRepository;
     }
 
-    public ProcInsDTO getNextNodes(String issueName) {
+    public TaskParam getNextNodes(String issueName) {
         String processInstanceId = issueInstanceKeyRepository.findProcessInsKeyByIssueName(issueName);
         Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
         String definitionId = task.getProcessDefinitionId();
@@ -53,10 +53,10 @@ public class FlowNodeService {
             WorkFlowNode workFlowNode = new WorkFlowNode(id, name, "sequenceFlow");
             list.add(workFlowNode);
         });
-        ProcInsDTO procInsDTO = new ProcInsDTO();
-        procInsDTO.setProcInsId(processInstanceId);
-        procInsDTO.setCurrentNodeName(currentNode.getName());
-        procInsDTO.setNextLines(list);
-        return procInsDTO;
+        TaskParam taskParam = new TaskParam();
+        taskParam.setProcInsId(processInstanceId);
+        taskParam.setCurrentNodeName(currentNode.getName());
+        taskParam.setNextLines(list);
+        return taskParam;
     }
 }

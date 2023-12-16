@@ -9,6 +9,7 @@ import com.goya.issue.model.po.*;
 import com.goya.issue.service.repository.IssueRepository;
 import com.goya.issue.service.repository.ProjectRepository;
 import com.goya.workflow.api.RemoteWorkflowService;
+import com.goya.workflow.model.dto.TaskParam;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -38,7 +39,7 @@ public class IssueService {
 
     private final ProjectRepository projectRepository;
 
-    @DubboReference
+    @DubboReference(timeout = 20000, retries = 0)
     private RemoteWorkflowService remoteWorkflowService;
 
     @PersistenceContext
@@ -100,4 +101,10 @@ public class IssueService {
         remoteWorkflowService.startProcess(issueMap);
         return issueName;
     }
+
+    public int completeTask(TaskParam taskParam) {
+        remoteWorkflowService.completeTask(taskParam);
+        return 1;
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.goya.workflow.api;
 
+import com.goya.workflow.model.dto.TaskParam;
+
 import java.util.Map;
 
 /**
@@ -11,4 +13,6 @@ public interface RemoteWorkflowService {
      * 部署流程
      */
     void startProcess(Map<String, String> variables);
+
+    void completeTask(TaskParam taskParam);
 }

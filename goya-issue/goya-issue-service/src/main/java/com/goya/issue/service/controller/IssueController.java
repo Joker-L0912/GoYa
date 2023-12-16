@@ -1,9 +1,9 @@
 package com.goya.issue.service.controller;
 
 import com.goya.issue.model.dto.IssueListItemDTO;
-import com.goya.issue.model.dto.IssueReqDTO;
 import com.goya.issue.model.po.Issue;
 import com.goya.issue.service.service.IssueService;
+import com.goya.workflow.model.dto.TaskParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -54,6 +54,11 @@ public class IssueController {
     @PostMapping
     public String addIssue(@RequestBody Map<String, String> issueMap) {
         return issueService.save(issueMap);
+    }
+
+    @PostMapping("/complete")
+    public int completeTask(@RequestBody TaskParam taskParam) {
+        return issueService.completeTask(taskParam);
     }
 
 }
