@@ -1,11 +1,9 @@
 package com.goya.redis.utils;
 
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
-import org.springframework.data.redis.core.Cursor;
-import org.springframework.data.redis.core.ScanOptions;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ZSetOperations;
+import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -16,13 +14,11 @@ import java.util.concurrent.TimeUnit;
  * @date 23/11/23 16:52
  */
 @Getter
+@Component
 public class RedisUtils {
 
-    private final StringRedisTemplate redisTemplate;
-
-    public RedisUtils(StringRedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     /** -------------------key相关操作--------------------- */
 
@@ -70,7 +66,6 @@ public class RedisUtils {
 
     /**
      * 查找匹配的key
-     *
      */
     public Set<String> keys(String pattern) {
         return redisTemplate.keys(pattern);
@@ -78,7 +73,6 @@ public class RedisUtils {
 
     /**
      * 将当前数据库的 key 移动到给定的数据库 db 当中
-     *
      */
     public Boolean move(String key, int dbIndex) {
         return redisTemplate.move(key, dbIndex);
@@ -86,7 +80,6 @@ public class RedisUtils {
 
     /**
      * 移除 key 的过期时间，key 将持久保持
-     *
      */
     public Boolean persist(String key) {
         return redisTemplate.persist(key);
@@ -94,7 +87,6 @@ public class RedisUtils {
 
     /**
      * 返回 key 的剩余的过期时间
-     *
      */
     public Long getExpire(String key, TimeUnit unit) {
         return redisTemplate.getExpire(key, unit);
@@ -238,7 +230,6 @@ public class RedisUtils {
 
     /**
      * 增加(自增长), 负数则为自减
-     *
      */
     public Long incrBy(String key, long increment) {
         return redisTemplate.opsForValue().increment(key, increment);

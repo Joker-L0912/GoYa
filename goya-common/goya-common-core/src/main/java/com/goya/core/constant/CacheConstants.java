@@ -8,7 +8,4 @@ package com.goya.core.constant;
 public interface CacheConstants {
 
     String REDIS_TOKEN_PREFIX = "auth:token:";
-
-
-    String LOGINID_JOIN_CODE = "";
 }

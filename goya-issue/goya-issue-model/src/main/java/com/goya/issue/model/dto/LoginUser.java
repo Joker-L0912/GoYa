@@ -112,7 +112,7 @@ public class LoginUser implements Serializable {
         if (userId == null) {
             throw new IllegalArgumentException("用户ID不能为空");
         }
-        return userType + CacheConstants.LOGINID_JOIN_CODE + userId;
+        return userType + "" + userId;
     }
 
 }

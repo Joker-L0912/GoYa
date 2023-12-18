@@ -1,2 +1,1 @@
-com.goya.redis.config.RedisConfig
-com.goya.redis.utils.RedisUtil
+com.goya.redis.utils.RedisUtils

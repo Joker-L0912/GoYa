@@ -3,6 +3,7 @@ package com.goya.core.exception;
 import com.goya.core.enums.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
 
@@ -10,6 +11,7 @@ import java.io.Serial;
  * @author limoum0u
  * @date 23/11/5 10:41
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 public class BaseException extends RuntimeException {

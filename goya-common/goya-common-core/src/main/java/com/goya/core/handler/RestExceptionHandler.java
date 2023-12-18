@@ -2,11 +2,10 @@ package com.goya.core.handler;
 
 import com.goya.core.domain.Result;
 import com.goya.core.enums.ReturnCode;
+import com.goya.core.exception.BaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author limoum0u
@@ -18,7 +17,7 @@ public class RestExceptionHandler {
     /**
      * 默认全局异常处理。
      */
-    @ExceptionHandler(ArithmeticException.class)
+    @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result<String> exception(Exception e) {
         log.error("全局异常信息 ex={}", e.getMessage(), e);
