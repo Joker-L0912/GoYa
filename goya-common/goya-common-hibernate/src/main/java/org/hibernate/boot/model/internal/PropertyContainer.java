@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package org.hibernate.cfg;
+package org.hibernate.boot.model.internal;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.Basic;
@@ -12,9 +12,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
-
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import org.hibernate.AnnotationException;
 import org.hibernate.annotations.Any;
 import org.hibernate.annotations.JavaType;
@@ -26,20 +30,20 @@ import org.hibernate.annotations.common.reflection.XProperty;
 import org.hibernate.boot.MappingException;
 import org.hibernate.boot.jaxb.Origin;
 import org.hibernate.boot.jaxb.SourceType;
-import org.hibernate.cfg.annotations.HCANNHelper;
+import org.hibernate.boot.spi.AccessType;
 import org.hibernate.internal.CoreMessageLogger;
 import org.hibernate.internal.util.StringHelper;
 import org.hibernate.internal.util.collections.CollectionHelper;
 import org.jboss.logging.Logger;
 
-class PropertyContainer {
+public class PropertyContainer {
     private static final CoreMessageLogger LOG = (CoreMessageLogger)Logger.getMessageLogger(CoreMessageLogger.class, PropertyContainer.class.getName());
     private final XClass xClass;
     private final XClass entityAtStake;
     private final AccessType classLevelAccessType;
     private final List<XProperty> persistentAttributes;
 
-    PropertyContainer(XClass clazz, XClass entityAtStake, AccessType defaultClassLevelAccessType) {
+    public PropertyContainer(XClass clazz, XClass entityAtStake, AccessType defaultClassLevelAccessType) {
         this.xClass = clazz;
         this.entityAtStake = entityAtStake;
         if (defaultClassLevelAccessType == AccessType.DEFAULT) {
@@ -52,19 +56,28 @@ class PropertyContainer {
 
         this.classLevelAccessType = localClassLevelAccessType != AccessType.DEFAULT ? localClassLevelAccessType : defaultClassLevelAccessType;
 
-        assert this.classLevelAccessType == AccessType.FIELD || this.classLevelAccessType == AccessType.PROPERTY;
+        assert this.classLevelAccessType == AccessType.FIELD || this.classLevelAccessType == AccessType.PROPERTY || this.classLevelAccessType == AccessType.RECORD;
 
         List<XProperty> fields = this.xClass.getDeclaredProperties(AccessType.FIELD.getType());
         List<XProperty> getters = this.xClass.getDeclaredProperties(AccessType.PROPERTY.getType());
-        this.preFilter(fields, getters);
+        List<XProperty> recordComponents = this.xClass.getDeclaredProperties(AccessType.RECORD.getType());
+        this.preFilter(fields, getters, recordComponents);
         Map<String, XProperty> persistentAttributesFromGetters = new HashMap();
-        LinkedHashMap<String, XProperty> localAttributeMap = new LinkedHashMap<>();
-        collectPersistentAttributesUsingLocalAccessType(this.xClass, localAttributeMap, persistentAttributesFromGetters, fields, getters);
-        collectPersistentAttributesUsingClassLevelAccessType(this.xClass, this.classLevelAccessType, localAttributeMap, persistentAttributesFromGetters, fields, getters);
-        this.persistentAttributes = verifyAndInitializePersistentAttributes(this.xClass, localAttributeMap);
+        Map<String, XProperty> persistentAttributesFromComponents = new HashMap();
+        final Map<String, XProperty> localAttributeMap = new LinkedHashMap<>();
+//        Object localAttributeMap;
+//        if (!recordComponents.isEmpty() && recordComponents.size() == fields.size() && getters.isEmpty()) {
+//            localAttributeMap = new LinkedHashMap();
+//        } else {
+//            localAttributeMap = new TreeMap();
+//        }
+
+        collectPersistentAttributesUsingLocalAccessType(this.xClass, (Map)localAttributeMap, persistentAttributesFromGetters, persistentAttributesFromComponents, fields, getters, recordComponents);
+        collectPersistentAttributesUsingClassLevelAccessType(this.xClass, this.classLevelAccessType, (Map)localAttributeMap, persistentAttributesFromGetters, persistentAttributesFromComponents, fields, getters, recordComponents);
+        this.persistentAttributes = verifyAndInitializePersistentAttributes(this.xClass, (Map)localAttributeMap);
     }
 
-    private void preFilter(List<XProperty> fields, List<XProperty> getters) {
+    private void preFilter(List<XProperty> fields, List<XProperty> getters, List<XProperty> recordComponents) {
         Iterator<XProperty> propertyIterator = fields.iterator();
 
         XProperty property;
@@ -84,9 +97,18 @@ class PropertyContainer {
             }
         }
 
+        propertyIterator = recordComponents.iterator();
+
+        while(propertyIterator.hasNext()) {
+            property = (XProperty)propertyIterator.next();
+            if (mustBeSkipped(property)) {
+                propertyIterator.remove();
+            }
+        }
+
     }
 
-    private static void collectPersistentAttributesUsingLocalAccessType(XClass xClass, LinkedHashMap<String, XProperty> persistentAttributeMap, Map<String, XProperty> persistentAttributesFromGetters, List<XProperty> fields, List<XProperty> getters) {
+    private static void collectPersistentAttributesUsingLocalAccessType(XClass xClass, Map<String, XProperty> persistentAttributeMap, Map<String, XProperty> persistentAttributesFromGetters, Map<String, XProperty> persistentAttributesFromComponents, List<XProperty> fields, List<XProperty> getters, List<XProperty> recordComponents) {
         Iterator<XProperty> propertyIterator = fields.iterator();
 
         XProperty xProperty;
@@ -102,12 +124,13 @@ class PropertyContainer {
 
         propertyIterator = getters.iterator();
 
+        String name;
         while(propertyIterator.hasNext()) {
             xProperty = (XProperty)propertyIterator.next();
             localAccessAnnotation = (Access)xProperty.getAnnotation(Access.class);
             if (localAccessAnnotation != null && localAccessAnnotation.value() == jakarta.persistence.AccessType.PROPERTY) {
                 propertyIterator.remove();
-                String name = xProperty.getName();
+                name = xProperty.getName();
                 XProperty previous = (XProperty)persistentAttributesFromGetters.get(name);
                 if (previous != null) {
                     throw new MappingException(LOG.ambiguousPropertyMethods(xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(xProperty)), new Origin(SourceType.ANNOTATION, xClass.getName()));
@@ -118,34 +141,60 @@ class PropertyContainer {
             }
         }
 
+        propertyIterator = recordComponents.iterator();
+
+        while(propertyIterator.hasNext()) {
+            xProperty = (XProperty)propertyIterator.next();
+            localAccessAnnotation = (Access)xProperty.getAnnotation(Access.class);
+            if (localAccessAnnotation != null) {
+                propertyIterator.remove();
+                name = xProperty.getName();
+                persistentAttributeMap.put(name, xProperty);
+                persistentAttributesFromComponents.put(name, xProperty);
+            }
+        }
+
     }
 
-    private static void collectPersistentAttributesUsingClassLevelAccessType(XClass xClass, AccessType classLevelAccessType, LinkedHashMap<String, XProperty> persistentAttributeMap, Map<String, XProperty> persistentAttributesFromGetters, List<XProperty> fields, List<XProperty> getters) {
-        Iterator var6;
-        XProperty getter;
+    private static void collectPersistentAttributesUsingClassLevelAccessType(XClass xClass, AccessType classLevelAccessType, Map<String, XProperty> persistentAttributeMap, Map<String, XProperty> persistentAttributesFromGetters, Map<String, XProperty> persistentAttributesFromComponents, List<XProperty> fields, List<XProperty> getters, List<XProperty> recordComponents) {
+        Iterator var8;
+        XProperty recordComponent;
+        String name;
         if (classLevelAccessType == AccessType.FIELD) {
-            var6 = fields.iterator();
+            var8 = fields.iterator();
 
-            while(var6.hasNext()) {
-                getter = (XProperty)var6.next();
-                if (!persistentAttributeMap.containsKey(getter.getName())) {
-                    persistentAttributeMap.put(getter.getName(), getter);
+            while(var8.hasNext()) {
+                recordComponent = (XProperty)var8.next();
+                name = recordComponent.getName();
+                if (!persistentAttributeMap.containsKey(name)) {
+                    persistentAttributeMap.put(name, recordComponent);
                 }
             }
         } else {
-            var6 = getters.iterator();
+            var8 = getters.iterator();
 
-            while(var6.hasNext()) {
-                getter = (XProperty)var6.next();
-                String name = getter.getName();
+            while(var8.hasNext()) {
+                recordComponent = (XProperty)var8.next();
+                name = recordComponent.getName();
                 XProperty previous = (XProperty)persistentAttributesFromGetters.get(name);
                 if (previous != null) {
-                    throw new MappingException(LOG.ambiguousPropertyMethods(xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(getter)), new Origin(SourceType.ANNOTATION, xClass.getName()));
+                    throw new MappingException(LOG.ambiguousPropertyMethods(xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(recordComponent)), new Origin(SourceType.ANNOTATION, xClass.getName()));
                 }
 
                 if (!persistentAttributeMap.containsKey(name)) {
-                    persistentAttributeMap.put(getter.getName(), getter);
-                    persistentAttributesFromGetters.put(name, getter);
+                    persistentAttributeMap.put(recordComponent.getName(), recordComponent);
+                    persistentAttributesFromGetters.put(name, recordComponent);
+                }
+            }
+
+            var8 = recordComponents.iterator();
+
+            while(var8.hasNext()) {
+                recordComponent = (XProperty)var8.next();
+                name = recordComponent.getName();
+                if (!persistentAttributeMap.containsKey(name)) {
+                    persistentAttributeMap.put(name, recordComponent);
+                    persistentAttributesFromComponents.put(name, recordComponent);
                 }
             }
         }

@@ -14,12 +14,13 @@
         <module>goya-auth</module>
         <module>goya-user</module>
         <module>goya-menu</module>
+        <module>goya-workflow</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.12</version>
+        <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -27,7 +28,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>3.0.12</spring-boot.version>
+        <spring-boot.version>3.1.4</spring-boot.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
@@ -43,11 +44,8 @@
         <swagger-annotations.version>1.5.20</swagger-annotations.version>
         <commons-lang3.version>3.10</commons-lang3.version>
         <okhttp.version>4.8.1</okhttp.version>
-        <swagger-spring-boot-starter.version>1.9.0.RELEASE</swagger-spring-boot-starter.version>
         <elasticsearch.version>7.12.1</elasticsearch.version>
         <dubbo.version>3.2.2</dubbo.version>
-        <satoken.version>1.36.0</satoken.version>
-        <hutool.version>5.8.20</hutool.version>
     </properties>
 
     <dependencyManagement>
