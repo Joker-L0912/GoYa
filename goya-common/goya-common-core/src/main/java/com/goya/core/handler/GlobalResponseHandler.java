@@ -3,6 +3,7 @@ package com.goya.core.handler;
 import com.goya.core.domain.Result;
 import com.goya.core.utils.JsonUtils;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -34,9 +35,9 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     @Nullable
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<?
-            extends HttpMessageConverter<?>> aClass,
-                                  ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        /**o is null -> return response*/
+            extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest,
+                                  ServerHttpResponse serverHttpResponse) {
+        // o is null -> return response
         if (o == null) {
             /**当 o 返回类型为 string 并且为null会出现 java.lang.ClassCastException: Result cannot be cast to java.lang.String,
              * 则封装ResultMsg对象并转换为String返回*/
@@ -45,7 +46,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
             }
             return Result.ofSuccess("操作成功");
         }
-        /**当 o 返回类型为ResultMsg(统一封装返回对象),则直接返回*/
+        //当 o 返回类型为ResultMsg(统一封装返回对象),则直接返回
         if (o instanceof Result) {
             return o;
         }

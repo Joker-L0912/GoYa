@@ -16,11 +16,6 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>com.goya.issue.auth.api</groupId>
-            <artifactId>goya-auth-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>com.goya.issue.auth.model</groupId>
@@ -55,15 +50,12 @@
             <artifactId>spring-boot-actuator-autoconfigure</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-        </dependency>
 
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-core</artifactId>
@@ -103,12 +95,6 @@
         <dependency>
             <groupId>com.goya.dubbo</groupId>
             <artifactId>goya-common-dubbo</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.goya.user.api</groupId>
-            <artifactId>goya-user-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

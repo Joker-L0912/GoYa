@@ -59,7 +59,7 @@ public class IssueService {
         return issueRepository.findByNameAndProjectId(name, projectId);
     }
 
-    public List<IssueListItemDTO> findPagedList(Integer pageNum, Integer pageSize, Long projectId) {
+    public List<IssueListItemDTO> getIssueList(Integer pageNum, Integer pageSize, Long projectId) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<IssueListItemDTO> query = criteriaBuilder.createQuery(IssueListItemDTO.class);
 

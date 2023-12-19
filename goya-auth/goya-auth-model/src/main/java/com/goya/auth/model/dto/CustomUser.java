@@ -1,6 +1,8 @@
 package com.goya.auth.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +16,8 @@ import java.util.List;
  * @date 23/11/8 14:48
  */
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomUser implements UserDetails {
     private Long userId;
     private String username;

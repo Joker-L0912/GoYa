@@ -1,8 +1,8 @@
-package com.goya.auth.provider.filter;
+package com.goya.security.filter;
 
 import com.goya.auth.model.dto.CustomUser;
+import com.goya.core.domain.Result;
 import com.goya.core.enums.ReturnCode;
-import com.goya.core.exception.BaseException;
 import com.goya.core.utils.JsonUtils;
 import com.goya.redis.utils.RedisUtils;
 import jakarta.annotation.Resource;
@@ -10,9 +10,12 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -20,7 +23,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static com.goya.core.constant.CacheConstants.REDIS_TOKEN_PREFIX;
-import static com.goya.core.constant.Constants.TOKEN_HEADER;
 
 /**
  * @author limoum0u
@@ -28,8 +30,6 @@ import static com.goya.core.constant.Constants.TOKEN_HEADER;
  */
 @Component
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
-    @Resource
-    private UserDetailsService userDetailsService;
 
     @Resource
     private RedisUtils redisUtils;
@@ -37,10 +37,15 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        String token = request.getHeader(TOKEN_HEADER);
+        String token = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if (token != null && !token.isEmpty()) {
             String s = redisUtils.get(REDIS_TOKEN_PREFIX + token);
+            // 为空直接返回
+            if (StringUtils.isEmpty(s)) {
+                handleException(response);
+                return;
+            }
             CustomUser customUser = JsonUtils.parseObject(s, CustomUser.class);
             // 根据token获取用户信息
 
@@ -53,7 +58,23 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
                 // 更新 redis key 过期时间
                 redisUtils.expire(REDIS_TOKEN_PREFIX + token, 60 * 60 * 24 * 7, TimeUnit.SECONDS);
             }
+            filterChain.doFilter(request, response);
+
+        } else {
+            // TODO: 配置不需要认证的接口 以及未登录的返回值
+            handleException(response);
         }
-        filterChain.doFilter(request, response);
+    }
+
+    private void handleException(HttpServletResponse response) throws IOException {
+        //  处理用户未登陆
+        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+
+        // 构建响应内容
+        String responseBody = JsonUtils.toJsonString(Result.ofFail(ReturnCode.USER_ERROR_A0200));
+        assert responseBody != null;
+        response.getWriter().write(responseBody);
+        response.getWriter().flush();
     }
 }

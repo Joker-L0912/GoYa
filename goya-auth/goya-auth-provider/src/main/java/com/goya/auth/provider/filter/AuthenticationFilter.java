@@ -66,7 +66,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         String token = generateToken(authResult);
         // 获取用户信息
         CustomUser customUser = (CustomUser) authResult.getPrincipal();
-        customUser.setPassword(null);
+//        customUser.setPassword(null);
         String userString = JsonUtils.toJsonString(customUser);
 
         // 将token存入redis
