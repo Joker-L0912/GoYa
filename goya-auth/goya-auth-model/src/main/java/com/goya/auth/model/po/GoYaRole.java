@@ -1,5 +1,6 @@
 package com.goya.auth.model.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,6 +23,7 @@ import java.io.Serializable;
         @Index(name = "idx_role_id", columnList = "role_id")
 })
 @Comment("角色表")
+@JsonIgnoreProperties({"createdAt", "updatedAt", "createdBy", "updatedBy", "status", "delFlag", "remark"})
 public class GoYaRole extends BaseModel implements Serializable {
 
     @Serial

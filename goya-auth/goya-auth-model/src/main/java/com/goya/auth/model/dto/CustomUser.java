@@ -1,5 +1,6 @@
 package com.goya.auth.model.dto;
 
+import com.goya.auth.model.po.GoYaRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author limoum0u
@@ -23,6 +25,7 @@ public class CustomUser implements UserDetails {
     private String username;
     private String password;
     private String phone;
+    private Set<GoYaRole> roles;
 
     private List<GrantedAuthority> authorities;
 

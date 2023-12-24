@@ -42,6 +42,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 userRepository.findGoYaUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
         Set<GoYaRole> role = user.getRole();
         return new CustomUser(user.getUserId(), user.getUsername(), user.getPassword(), user.getPhonenumber(),
-                Collections.emptyList());
+                user.getRole(), Collections.emptyList());
     }
 }
