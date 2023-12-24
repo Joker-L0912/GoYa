@@ -1,6 +1,8 @@
 package com.goya.security.utils;
 
-import com.goya.auth.model.dto.CustomUser;
+import com.goya.security.dto.CustomUser;
+import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
@@ -11,17 +13,28 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public class SecurityUtil {
 
-    /**
-     * 获取当前登录用户
-     *
-     * @return
-     */
-    public static String getCurrentUser() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public static Authentication getAuthentication() {
+        return SecurityContextHolder.getContext().getAuthentication();
+    }
+
+    public static String getUsername() {
+        return getCustomUser().getUsername();
+    }
+
+    public static CustomUser getCustomUser(Authentication authentication) {
+        Object principal = authentication.getPrincipal();
         if (principal instanceof CustomUser) {
-            return ((CustomUser) principal).getUsername();
+            return (CustomUser) principal;
         }
-        return "anonymous";
+        return null;
+    }
+
+    public static CustomUser getCustomUser() {
+        Authentication authentication = getAuthentication();
+        if (authentication == null) {
+            return null;
+        }
+        return getCustomUser(authentication);
     }
 
 }

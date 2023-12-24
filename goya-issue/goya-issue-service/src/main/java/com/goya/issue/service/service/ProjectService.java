@@ -6,6 +6,7 @@ import com.goya.issue.service.repository.ProjectRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author limoum0u
@@ -26,10 +27,12 @@ public class ProjectService {
         return projects;
     }
 
+    @Transactional
     public Project save(Project project) {
         return projectRepository.save(project);
     }
 
+    @Transactional
     public Project update(Project project) {
         return projectRepository.save(project);
     }
@@ -38,9 +41,9 @@ public class ProjectService {
         return projectRepository.findById(id).orElse(null);
     }
 
-
-    public Result deleteById(Long id) {
+    @Transactional
+    public int deleteById(Long id) {
         projectRepository.deleteById(id);
-        return Result.ofSuccess();
+        return 1;
     }
 }

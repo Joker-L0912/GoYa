@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -38,16 +39,16 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf().disable()
+                .csrf((csrf) -> csrf.disable())
                 // 开启跨域以便前端调用接口
-                .cors()
-                .and()
-                .authorizeHttpRequests().requestMatchers("/error", "/user/login", "/user/test").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                .cors(Customizer.withDefaults())
+                .authorizeHttpRequests(authorizeHttpRequests -> {
+                    authorizeHttpRequests.requestMatchers("/error", "/user/login",
+                                    "/user/test").permitAll()
+                            .requestMatchers("/**").authenticated();
+                })
                 // 基于 token，不需要 session
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+                .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterAt(new AuthenticationFilter(authenticationManager(), redisUtils),
                         UsernamePasswordAuthenticationFilter.class)
                 .addFilterAt(tokenAuthenticationFilter,

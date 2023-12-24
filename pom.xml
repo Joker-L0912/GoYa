@@ -12,8 +12,6 @@
         <module>goya-common</module>
         <module>goya-issue</module>
         <module>goya-auth</module>
-        <module>goya-user</module>
-        <module>goya-menu</module>
         <module>goya-workflow</module>
     </modules>
 

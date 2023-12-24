@@ -3,12 +3,14 @@ package com.goya.auth.model.po;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Comment;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author limoum0u
@@ -20,12 +22,12 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "user", indexes = {
-        @Index(name = "idx_goyauser_user_name", columnList = "user_name")
+@Table(name = "goya_user", indexes = {
+        @Index(name = "idx_goyauser_user_name", columnList = "username")
 }, uniqueConstraints = {
-        @UniqueConstraint(name = "user_name", columnNames = {"user_name"})
+        @UniqueConstraint(name = "user_name", columnNames = {"username"})
 })
-@org.hibernate.annotations.Table(appliesTo = "user", comment = "用户")
+@Comment("用户")
 public class GoYaUser extends BaseModel implements Serializable {
 
     @Serial
@@ -40,25 +42,13 @@ public class GoYaUser extends BaseModel implements Serializable {
     private Long userId;
 
     /**
-     * 部门ID
+     * 用户昵称
      */
-    @Column(name = "dept_id")
-    private Long deptId;
-
-    /**
-     * 用户账号
-     */
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String username;
 
     /**
-     * 用户昵称
-     */
-    @Column(name = "nick_name")
-    private String nickName;
-
-    /**
-     * 用户类型（sys_user系统用户）
+     * 用户类型（00系统用户 01注册用户）
      */
     @Column(name = "user_type")
     private String userType;
@@ -82,7 +72,7 @@ public class GoYaUser extends BaseModel implements Serializable {
     private String sex;
 
     /**
-     * 头像地址
+     * 头像路径
      */
     @Column(name = "avatar")
     private String avatar;
@@ -100,23 +90,23 @@ public class GoYaUser extends BaseModel implements Serializable {
     private String status;
 
     /**
-     * 最后登录IP
+     * 删除标志（0代表存在 2代表删除）
      */
-    @Column(name = "login_ip")
-    private String loginIp;
-
-    /**
-     * 最后登录时间
-     */
-    @Column(name = "login_date")
-    private Date loginDate;
-
+    @Column(name = "del_flag")
+    private String delFlag;
 
     /**
      * 备注
      */
     @Column(name = "remark")
     private String remark;
+
+
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "goya_user_role_rel",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")})
+    private Set<GoYaRole> role;
 
     @Override
     public final boolean equals(Object o) {

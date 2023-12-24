@@ -97,6 +97,18 @@
             <artifactId>goya-common-dubbo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.goya.issue.auth.api</groupId>
+            <artifactId>goya-auth-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.goya.security</groupId>
+            <artifactId>goya-common-security</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

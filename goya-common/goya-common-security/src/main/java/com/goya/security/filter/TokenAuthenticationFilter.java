@@ -1,15 +1,16 @@
 package com.goya.security.filter;
 
-import com.goya.auth.model.dto.CustomUser;
 import com.goya.core.domain.Result;
 import com.goya.core.enums.ReturnCode;
 import com.goya.core.utils.JsonUtils;
 import com.goya.redis.utils.RedisUtils;
+import com.goya.security.dto.CustomUser;
 import jakarta.annotation.Resource;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,7 @@ import static com.goya.core.constant.CacheConstants.REDIS_TOKEN_PREFIX;
  * @date 23/11/7 16:04
  */
 @Component
+@Slf4j
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     @Resource
@@ -62,6 +64,11 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
         } else {
             // TODO: 配置不需要认证的接口 以及未登录的返回值
+            if (StringUtils.equals("/auth/user/login", request.getRequestURI())){
+                filterChain.doFilter(request, response);
+                return;
+            }
+            log.info(request.getRequestURI());
             handleException(response);
         }
     }
