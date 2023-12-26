@@ -1,11 +1,14 @@
 package com.goya.issue.model.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author limoum0u
@@ -22,15 +25,17 @@ import java.util.Date;
         @UniqueConstraint(columnNames = "menu_name", name = "menu_name")
 })
 @Comment("菜单权限表")
+@JsonIgnoreProperties({"createTime", "updateTime", "createBy", "updateBy"})
 public class GoYaMenu implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
      * 菜单ID
      */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_id")
     private Long menuId;
 

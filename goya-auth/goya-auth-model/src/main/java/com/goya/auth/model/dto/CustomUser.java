@@ -1,6 +1,7 @@
 package com.goya.auth.model.dto;
 
 import com.goya.auth.model.po.GoYaRole;
+import com.goya.issue.model.po.GoYaMenu;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class CustomUser implements UserDetails {
     private String username;
     private String password;
     private String phone;
-    private Set<GoYaRole> roles;
+    private Set<String> menuPermits;
 
     private List<GrantedAuthority> authorities;
 

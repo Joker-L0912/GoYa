@@ -1,10 +1,10 @@
 package com.goya.security.filter;
 
+import com.goya.auth.model.dto.CustomUser;
 import com.goya.core.domain.Result;
 import com.goya.core.enums.ReturnCode;
 import com.goya.core.utils.JsonUtils;
 import com.goya.redis.utils.RedisUtils;
-import com.goya.security.dto.CustomUser;
 import jakarta.annotation.Resource;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -64,11 +64,11 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
         } else {
             // TODO: 配置不需要认证的接口 以及未登录的返回值
-            if (StringUtils.equals("/auth/user/login", request.getRequestURI())){
+            if (StringUtils.equals("/auth/user/login", request.getRequestURI())) {
                 filterChain.doFilter(request, response);
                 return;
             }
-            log.info(request.getRequestURI());
+            log.error("用户访问被拒绝", request.getRequestURI());
             handleException(response);
         }
     }
@@ -77,6 +77,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
         //  处理用户未登陆
         response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
 
         // 构建响应内容
         String responseBody = JsonUtils.toJsonString(Result.ofFail(ReturnCode.USER_ERROR_A0200));

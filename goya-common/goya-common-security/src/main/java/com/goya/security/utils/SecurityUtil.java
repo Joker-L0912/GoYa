@@ -1,7 +1,6 @@
 package com.goya.security.utils;
 
-import com.goya.security.dto.CustomUser;
-import org.apache.commons.lang3.ObjectUtils;
+import com.goya.auth.model.dto.CustomUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

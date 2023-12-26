@@ -1,6 +1,7 @@
 package com.goya.auth.model.po;
 
 import com.goya.hibernate.model.po.BaseModel;
+import com.goya.issue.model.po.GoYaMenu;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
@@ -107,6 +108,9 @@ public class GoYaUser extends BaseModel implements Serializable {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")})
     private Set<GoYaRole> role;
+
+    @Transient
+    private Set<GoYaMenu> menus;
 
     @Override
     public final boolean equals(Object o) {

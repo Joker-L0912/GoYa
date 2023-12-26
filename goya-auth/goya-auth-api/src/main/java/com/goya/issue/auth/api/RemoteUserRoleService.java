@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface RemoteUserRoleService {
 
-    public List<GoYaRole> getUserRoleList(String token);
+    public List<GoYaRole> getRoleMenuIds(String token);
 }
