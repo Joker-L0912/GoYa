@@ -45,13 +45,13 @@ public class ProjectController {
     }
 
 
-    @PutMapping
     /**
      * 更新项目信息
      *
      * @param project 项目信息实体
      * @return 更新后的项目信息实体
      */
+    @PutMapping
     public Project update(@RequestBody Project project) {
         return projectService.update(project);
     }

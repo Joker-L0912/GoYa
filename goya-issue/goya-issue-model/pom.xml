@@ -29,6 +29,12 @@
             <artifactId>mapstruct</artifactId>
             <version>1.5.5.Final</version>
         </dependency>
+        <dependency>
+            <groupId>com.goya.issue.auth.model</groupId>
+            <artifactId>goya-auth-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

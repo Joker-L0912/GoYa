@@ -1,11 +1,14 @@
 package com.goya.issue.model.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.goya.auth.model.po.GoYaUser;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author limoum0u
@@ -86,4 +89,11 @@ public class Project extends BaseModel implements Serializable {
      */
     @Column(name = "issue_count", columnDefinition = "INT COMMENT '项目问题数量' DEFAULT 0")
     private Integer issueCount;
+
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "goya_project_user_rel",
+            joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")})
+    @JsonIgnore
+    private Set<GoYaUser> users;
 }

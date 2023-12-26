@@ -4,6 +4,8 @@ import com.goya.auth.model.dto.CustomUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.util.Objects;
+
 /**
  * @author limoum0u
  * @date 23/12/19 23:07
@@ -17,7 +19,7 @@ public class SecurityUtil {
     }
 
     public static String getUsername() {
-        return getCustomUser().getUsername();
+        return Objects.requireNonNull(getCustomUser()).getUsername();
     }
 
     public static CustomUser getCustomUser(Authentication authentication) {

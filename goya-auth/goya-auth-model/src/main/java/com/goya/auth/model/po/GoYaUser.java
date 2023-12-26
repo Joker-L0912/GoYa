@@ -20,13 +20,13 @@ import java.util.Set;
 @RequiredArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity
 @Table(name = "goya_user", indexes = {
         @Index(name = "idx_goyauser_user_name", columnList = "username")
 }, uniqueConstraints = {
         @UniqueConstraint(name = "user_name", columnNames = {"username"})
 })
 @Comment("用户")
+@Entity
 public class GoYaUser extends BaseModel implements Serializable {
 
     @Serial
@@ -101,7 +101,7 @@ public class GoYaUser extends BaseModel implements Serializable {
     private String remark;
 
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(name = "goya_user_role_rel",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")})

@@ -1,5 +1,6 @@
 package com.goya.core.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.goya.core.enums.ReturnCode;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
  * @date 23/11/9 9:48
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result<T> {
 
     private String alert;

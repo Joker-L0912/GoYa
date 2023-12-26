@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan({"com.goya.issue.model.po", "com.goya.hibernate.model.po"})
+@EntityScan({"com.goya.*.model.po"})
 @EnableJpaRepositories("com.goya.issue.service.repository")
 @EnableJpaAuditing
 @EnableDubbo

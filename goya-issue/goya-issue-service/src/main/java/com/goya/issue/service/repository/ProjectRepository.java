@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -24,4 +25,10 @@ public interface ProjectRepository extends BaseRepository<Project, Long> {
     @Modifying
     @Query("update Project p set p.name = ?1 where p.id = ?2")
     int updateNameById(String name, Long id);
+
+    Page<Project> findByUsers_Username(String username, Pageable pageable);
+
+    Optional<Project> findByIdAndUsers_Username(Long id, String username);
+
+
 }

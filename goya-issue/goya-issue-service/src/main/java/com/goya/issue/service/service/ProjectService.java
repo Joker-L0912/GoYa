@@ -1,8 +1,9 @@
 package com.goya.issue.service.service;
 
-import com.goya.core.domain.Result;
 import com.goya.issue.model.po.Project;
 import com.goya.issue.service.repository.ProjectRepository;
+import com.goya.security.utils.SecurityUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,12 @@ public class ProjectService {
     }
 
     public Page<Project> findAll(int pageNum, int pageSize) {
+        String username = SecurityUtil.getUsername();
+        if (StringUtils.isEmpty(username)) {
+            return null;
+        }
         Pageable pageable = Pageable.ofSize(pageSize).withPage(pageNum);
-        Page<Project> projects = projectRepository.findAll(pageable);
-        return projects;
+        return projectRepository.findByUsers_Username(username, pageable);
     }
 
     @Transactional
@@ -38,7 +42,11 @@ public class ProjectService {
     }
 
     public Project findById(Long id) {
-        return projectRepository.findById(id).orElse(null);
+        String username = SecurityUtil.getUsername();
+        if (StringUtils.isEmpty(username)) {
+            return null;
+        }
+        return projectRepository.findByIdAndUsers_Username(id, username).orElse(null);
     }
 
     @Transactional

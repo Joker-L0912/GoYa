@@ -50,7 +50,7 @@ public class GoYaRole extends BaseModel implements Serializable {
     @Column(name = "role_name")
     private String roleName;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "goya_role_menu_rel",
             joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")},
             inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "menu_id")})

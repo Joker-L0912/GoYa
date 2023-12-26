@@ -44,7 +44,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
             if (methodParameter.getParameterType().getName().equals("java.lang.String")) {
                 return JsonUtils.toJsonString(Result.ofSuccess("操作成功"));
             }
-            return Result.ofSuccess("操作成功");
+            return Result.ofSuccess();
         }
         //当 o 返回类型为ResultMsg(统一封装返回对象),则直接返回
         if (o instanceof Result) {
