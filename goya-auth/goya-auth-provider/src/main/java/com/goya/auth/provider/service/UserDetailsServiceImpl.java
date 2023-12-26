@@ -4,7 +4,7 @@ import com.goya.auth.model.dto.CustomUser;
 import com.goya.auth.model.po.GoYaRole;
 import com.goya.auth.model.po.GoYaUser;
 import com.goya.auth.provider.repository.UserRepository;
-import com.goya.issue.model.po.GoYaMenu;
+import com.goya.auth.model.po.GoYaMenu;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

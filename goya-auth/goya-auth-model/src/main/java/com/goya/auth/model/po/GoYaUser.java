@@ -1,7 +1,6 @@
 package com.goya.auth.model.po;
 
 import com.goya.hibernate.model.po.BaseModel;
-import com.goya.issue.model.po.GoYaMenu;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
@@ -9,7 +8,6 @@ import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
 

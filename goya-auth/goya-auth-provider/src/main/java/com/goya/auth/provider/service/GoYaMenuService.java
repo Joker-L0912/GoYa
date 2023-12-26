@@ -1,7 +1,7 @@
-package com.goya.issue.service.service;
+package com.goya.auth.provider.service;
 
-import com.goya.issue.model.po.GoYaMenu;
-import com.goya.issue.service.repository.GoYaMenuRepository;
+import com.goya.auth.model.po.GoYaMenu;
+import com.goya.auth.provider.repository.GoYaMenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
