@@ -75,7 +75,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     private void handleException(HttpServletResponse response) throws IOException {
         //  处理用户未登陆
-        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding("UTF-8");
 
