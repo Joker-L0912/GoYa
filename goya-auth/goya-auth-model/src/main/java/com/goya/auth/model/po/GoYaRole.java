@@ -2,7 +2,6 @@ package com.goya.auth.model.po;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.goya.hibernate.model.po.BaseModel;
-import com.goya.issue.model.po.GoYaMenu;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;

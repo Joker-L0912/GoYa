@@ -1,7 +1,5 @@
 package com.goya.auth.model.dto;
 
-import com.goya.auth.model.po.GoYaRole;
-import com.goya.issue.model.po.GoYaMenu;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +8,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 

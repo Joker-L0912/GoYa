@@ -1,7 +1,7 @@
-package com.goya.issue.service.controller;
+package com.goya.auth.provider.controller;
 
-import com.goya.issue.model.po.GoYaMenu;
-import com.goya.issue.service.service.GoYaMenuService;
+import com.goya.auth.model.po.GoYaMenu;
+import com.goya.auth.provider.service.GoYaMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

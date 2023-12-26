@@ -1,13 +1,10 @@
 package com.goya.auth.provider.service;
 
 import com.goya.auth.model.dto.CustomUser;
-import com.goya.auth.model.po.GoYaRole;
-import com.goya.auth.model.po.GoYaUser;
 import com.goya.auth.provider.repository.UserRepository;
 import com.goya.core.constant.CacheConstants;
 import com.goya.core.domain.Result;
 import com.goya.core.utils.JsonUtils;
-import com.goya.issue.model.po.GoYaMenu;
 import com.goya.redis.utils.RedisUtils;
 import jakarta.annotation.Resource;
 import org.springframework.security.authentication.AuthenticationManager;

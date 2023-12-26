@@ -1,4 +1,4 @@
-package com.goya.issue.model.po;
+package com.goya.auth.model.po;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
