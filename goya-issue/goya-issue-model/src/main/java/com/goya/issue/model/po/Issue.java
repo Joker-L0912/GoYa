@@ -3,6 +3,7 @@ package com.goya.issue.model.po;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Comment;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serial;
@@ -23,7 +24,7 @@ import java.util.Objects;
 @Table(name = "issue", uniqueConstraints = {
         @UniqueConstraint(columnNames = "name", name = "name")
 })
-@org.hibernate.annotations.Table(appliesTo = "issue", comment = "问题")
+@Comment("问题表")
 public class Issue extends BaseModel implements Serializable {
 
     @Serial

@@ -26,7 +26,7 @@ import static com.goya.core.constant.Constants.TOKEN_HEADER;
  * @author limoum0u
  * @date 23/11/7 16:04
  */
-@Component
+//@Component
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Resource
     private UserDetailsService userDetailsService;

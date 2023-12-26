@@ -28,34 +28,64 @@ public class IssueController {
         this.issueService = issueService;
     }
 
+
+    /**
+     * 根据名称和项目ID获取问题
+     *
+     * @param name 问题名称
+     * @param projectId 项目ID
+     * @return 问题对象
+     * @throws Exception 如果发生异常
+     */
     @GetMapping("/{name}")
     public Issue getByName(@PathVariable String name, @RequestParam Long projectId) throws Exception {
         Optional<Issue> issue = issueService.findByName(name, projectId);
-        return issue.get();
+        return issue.orElseThrow(() -> new Exception("issue not found"));
     }
 
+    /**
+     * 获取问题列表
+     *
+     * @param projectId 项目ID
+     * @param pageNum 页码
+     * @param pageSize 每页数量
+     * @return 问题列表
+     */
     @GetMapping
     public List<IssueListItemDTO> getIssueList(Long projectId,
-                                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                           @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
+                                               @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                               @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
         return issueService.getIssueList(pageNum, pageSize, projectId);
     }
 
+    /**
+     * 获取问题数量
+     *
+     * @param projectId 项目ID
+     * @return 问题数量
+     */
     @GetMapping("/count")
     public Long getCount(@RequestParam Long projectId) {
         return issueService.getCount(projectId);
     }
 
     /**
-     * 新增
+     * 新增问题
      *
-     * @return issueName
+     * @param issueMap 问题信息
+     * @return 问题ID
      */
     @PostMapping
     public String addIssue(@RequestBody Map<String, String> issueMap) {
         return issueService.save(issueMap);
     }
 
+    /**
+     * 完成任务
+     *
+     * @param taskParam 任务参数
+     * @return 任务ID
+     */
     @PostMapping("/complete")
     public int completeTask(@RequestBody TaskParam taskParam) {
         return issueService.completeTask(taskParam);

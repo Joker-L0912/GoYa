@@ -10,6 +10,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,7 @@ import static com.goya.core.constant.CacheConstants.REDIS_TOKEN_PREFIX;
  * @date 23/11/7 16:04
  */
 @Component
+@Slf4j
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     @Resource
@@ -62,14 +64,20 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
         } else {
             // TODO: 配置不需要认证的接口 以及未登录的返回值
+            if (StringUtils.equals("/auth/user/login", request.getRequestURI())) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+            log.error("用户访问被拒绝", request.getRequestURI());
             handleException(response);
         }
     }
 
     private void handleException(HttpServletResponse response) throws IOException {
         //  处理用户未登陆
-        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
 
         // 构建响应内容
         String responseBody = JsonUtils.toJsonString(Result.ofFail(ReturnCode.USER_ERROR_A0200));
