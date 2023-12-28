@@ -4,6 +4,7 @@ import com.goya.issue.model.dto.IssueListItemDTO;
 import com.goya.issue.model.po.Issue;
 import com.goya.issue.service.service.IssueService;
 import com.goya.workflow.model.dto.TaskParam;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -91,4 +92,10 @@ public class IssueController {
         return issueService.completeTask(taskParam);
     }
 
+    @GetMapping("/myTask")
+    public Page<IssueListItemDTO> getMyTask(@RequestParam Long projectId,
+                                            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        return issueService.getMyTask(projectId, pageNum, pageSize);
+    }
 }

@@ -1,7 +1,9 @@
 package com.goya.issue.service;
 
 import com.goya.core.utils.JsonUtils;
+import com.goya.issue.model.dto.IssueListItemDTO;
 import com.goya.issue.model.po.Project;
+import com.goya.issue.service.repository.IssueRepository;
 import com.goya.issue.service.repository.ProjectRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -24,6 +26,8 @@ public class IssueTest {
     @Autowired
     private ProjectRepository projectRepository;
 
+    @Autowired
+    private IssueRepository issueRepository;
 //    @Test
 //    @Transactional
 //    public void test1() {
@@ -32,4 +36,14 @@ public class IssueTest {
 //        Page<Project> projects = projectRepository.findByUsers_Username("lizihan", pageable);
 //        log.info(JsonUtils.toJsonString(projects));
 //    }
+
+    @Test
+    @Transactional
+    public void test1() {
+        Pageable pageable = Pageable.ofSize(2).withPage(0);
+
+        Page<IssueListItemDTO> issueListItemDTOS = issueRepository.findByHandledByAndSolutionResultNull(1L, "lizihan",
+                pageable);
+        log.info(issueListItemDTOS.toString());
+    }
 }

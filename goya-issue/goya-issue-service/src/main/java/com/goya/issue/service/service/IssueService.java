@@ -8,6 +8,7 @@ import com.goya.issue.model.mapper.IssueMapper;
 import com.goya.issue.model.po.*;
 import com.goya.issue.service.repository.IssueRepository;
 import com.goya.issue.service.repository.ProjectRepository;
+import com.goya.security.utils.SecurityUtil;
 import com.goya.workflow.api.RemoteWorkflowService;
 import com.goya.workflow.model.dto.TaskParam;
 import jakarta.persistence.EntityManager;
@@ -67,8 +68,11 @@ public class IssueService {
         Join<Issue, IssueType> type = i.join(Issue_.issueType);
         Join<Issue, Project> projectJoin = i.join(Issue_.project);
 
-        query.select(criteriaBuilder.construct(IssueListItemDTO.class, i.get(Issue_.id), i.get(Issue_.name).alias(
-                        "name"), i.get(Issue_.gist), type.get(IssueType_.name).alias("type"),
+        query.select(criteriaBuilder.construct(IssueListItemDTO.class,
+                i.get(Issue_.id),
+                i.get(Issue_.name).alias("name"),
+                i.get(Issue_.gist),
+                type.get(IssueType_.name).alias("type"),
                 i.get(Issue_.issuePriority),
                 i.get(Issue_.issueStatus), projectJoin.get(Project_.name).alias("projectName"),
                 i.get(Issue_.solutionResult), i.get(Issue_.reportedBy), i.get(Issue_.handledBy),
@@ -81,30 +85,46 @@ public class IssueService {
         return issueRepository.countByProjectId(projectId);
     }
 
+    /**
+     * 保存issue
+     *
+     * @param issueMap 保存issue的数据映射
+     * @return 保存的issue名称
+     */
     @Transactional(rollbackFor = Exception.class)
     public String save(Map<String, String> issueMap) {
+        // 将映射转换为IssueReqDTO对象
         IssueReqDTO issueReqDto = IssueMapper.INSTANCE.map2Dto(issueMap);
+        // 查找是否存在对应的项目
         Optional<Project> projectOptional = projectRepository.findById(issueReqDto.getProjectId());
         Project project = projectOptional.orElseThrow(() -> new BaseException(ReturnCode.USER_ERROR_A0400));
-        // 生成 issue 的名称 KEY + 数量
+        // 生成issue的名称KEY + 数量
         //TODO: 多个线程同时操作这里可能会出现问题
         int issueCount = project.getIssueCount();
         project.setIssueCount(issueCount + 1);
         projectRepository.save(project);
-
+        // 生成issue的名称
         String issueName = project.getKeyword() + "-" + issueCount;
+        // 将IssueReqDTO转换为Issue对象
         Issue issue = IssueMapper.INSTANCE.toEntity(issueReqDto);
         issue.setName(issueName);
         issueMap.put("issueName", issueName);
+        // 保存issue对象
         issueRepository.save(issue);
-        // 流程
+        // 启动流程
         remoteWorkflowService.startProcess(issueMap);
         return issueName;
     }
+
 
     public int completeTask(TaskParam taskParam) {
         remoteWorkflowService.completeTask(taskParam);
         return 1;
     }
 
+    public Page<IssueListItemDTO> getMyTask(Long projectId, Integer pageNum, Integer pageSize) {
+        String username = SecurityUtil.getUsername();
+        PageRequest pageRequest = PageRequest.of(pageNum - 1, pageSize);
+        return issueRepository.findByHandledByAndSolutionResultNull(projectId, username, pageRequest);
+    }
 }

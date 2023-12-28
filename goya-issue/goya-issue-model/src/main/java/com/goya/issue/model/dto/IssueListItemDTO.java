@@ -1,6 +1,7 @@
 package com.goya.issue.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.goya.issue.model.po.Issue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,7 +11,9 @@ import java.util.Date;
  * @author limoum0u
  * @date 23/10/15 15:36
  */
-
+/**
+ * DTO for {@link Issue}
+ */
 @Data
 @AllArgsConstructor
 public class IssueListItemDTO {
