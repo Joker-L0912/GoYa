@@ -1,9 +1,11 @@
 package com.goya.auth.provider.controller;
 
+import com.goya.auth.model.dto.CustomUser;
+import com.goya.auth.provider.service.UserDetailsServiceImpl;
 import com.goya.auth.provider.service.UserService;
 import com.goya.core.domain.Result;
+import com.goya.security.utils.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -15,10 +17,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-public class LoginUserController {
+public class GOYaUserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public GOYaUserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/test")
     public Result<String> login() {
@@ -28,5 +33,14 @@ public class LoginUserController {
     @PostMapping("/login")
     public Result<Map<String, String>> login(@RequestBody Map<String, String> loginParam) {
         return userService.login(loginParam);
+    }
+
+    @GetMapping("/info")
+    public CustomUser getUserInfo() {
+        CustomUser customUser = SecurityUtil.getCustomUser();
+        if (customUser == null) {
+            throw new RuntimeException("获取用户信息失败");
+        }
+        return customUser;
     }
 }

@@ -1,2 +1,1 @@
-com.goya.hibernate.config.UserAuditor
 com.goya.hibernate.config.HibernateListenerConfigurer

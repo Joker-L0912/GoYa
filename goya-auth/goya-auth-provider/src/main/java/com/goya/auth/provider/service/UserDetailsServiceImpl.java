@@ -1,12 +1,11 @@
 package com.goya.auth.provider.service;
 
 import com.goya.auth.model.dto.CustomUser;
+import com.goya.auth.model.po.GoYaMenu;
 import com.goya.auth.model.po.GoYaRole;
 import com.goya.auth.model.po.GoYaUser;
 import com.goya.auth.provider.repository.UserRepository;
-import com.goya.auth.model.po.GoYaMenu;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -25,7 +24,11 @@ import java.util.Set;
 @DubboService
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class, readOnly = true)
@@ -42,10 +45,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return new CustomUser(user.getUserId(), user.getUsername(), user.getPassword(), user.getPhonenumber(),
                 menuPermits, Collections.emptyList());
-    }
-
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
     }
 }
