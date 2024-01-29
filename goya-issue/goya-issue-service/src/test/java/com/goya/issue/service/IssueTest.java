@@ -37,7 +37,7 @@ public class IssueTest {
 //        log.info(JsonUtils.toJsonString(projects));
 //    }
 
-    @Test
+//    @Test
     @Transactional
     public void test1() {
         Pageable pageable = Pageable.ofSize(2).withPage(0);

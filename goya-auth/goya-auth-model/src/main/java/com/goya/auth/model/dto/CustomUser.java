@@ -23,7 +23,7 @@ public class CustomUser implements UserDetails {
     private String username;
     private String password;
     private String phone;
-    private Set<String> menuPermits;
+    private Set<String> permits;
 
     private List<GrantedAuthority> authorities;
 

@@ -40,8 +40,9 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+        String uri = request.getRequestURI();
 
-        if (token != null && !token.isEmpty()) {
+        if (token != null && !token.isEmpty() && !"/auth/user/login".equals(uri)) {
             String s = redisUtils.get(REDIS_TOKEN_PREFIX + token);
             // 为空直接返回
             if (StringUtils.isEmpty(s)) {
@@ -50,7 +51,6 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             }
             CustomUser customUser = JsonUtils.parseObject(s, CustomUser.class);
             // 根据token获取用户信息
-
             if (customUser != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 // 创建一个认证令牌
                 UsernamePasswordAuthenticationToken authenticationToken =
@@ -64,11 +64,11 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
         } else {
             // TODO: 配置不需要认证的接口 以及未登录的返回值
-            if (StringUtils.equals("/auth/user/login", request.getRequestURI())) {
+            if (StringUtils.equals("/auth/user/login", uri)) {
                 filterChain.doFilter(request, response);
                 return;
             }
-            log.error("用户访问被拒绝", request.getRequestURI());
+            log.error("用户访问被拒绝", uri);
             handleException(response);
         }
     }

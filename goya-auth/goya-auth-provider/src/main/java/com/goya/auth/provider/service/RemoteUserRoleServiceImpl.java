@@ -29,6 +29,12 @@ public class RemoteUserRoleServiceImpl implements RemoteUserRoleService {
 
     private UserRepository userRepository;
 
+    public RemoteUserRoleServiceImpl(RedisUtils redisUtils, GoYaRoleRepository roleRepository, UserRepository userRepository) {
+        this.redisUtils = redisUtils;
+        this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
+    }
+
     @Override
     public List<GoYaRole> getRoleMenuIds(String token) {
         List<GoYaRole> rolelist = new ArrayList<>();
@@ -40,20 +46,5 @@ public class RemoteUserRoleServiceImpl implements RemoteUserRoleService {
         String username = customUser.getUsername();
 //        roleRepository.
         return null;
-    }
-
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @Autowired
-    public void setRedisUtils(RedisUtils redisUtils) {
-        this.redisUtils = redisUtils;
-    }
-
-    @Autowired
-    public void setRoleRepository(GoYaRoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
     }
 }

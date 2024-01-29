@@ -60,3 +60,5 @@ dubbo:
     parameters:
       namespace: dubbo
       group: DUBBO_GROUP
+  protocol:
+    port: 20881

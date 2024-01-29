@@ -36,14 +36,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         GoYaUser user = userRepository.findGoYaUserByUsername(username).orElseThrow(() -> new RuntimeException(
                 "用户名或密码错误"));
         Set<GoYaRole> roles = user.getRole();
-        Set<String> menuPermits = new HashSet<>();
+        Set<String> permits = new HashSet<>();
         for (GoYaRole role : roles) {
             Set<GoYaMenu> menus = role.getMenus();
             for (GoYaMenu menu : menus) {
-                menuPermits.add(menu.getPerms());
+                permits.add(menu.getPerms());
             }
         }
         return new CustomUser(user.getUserId(), user.getUsername(), user.getPassword(), user.getPhonenumber(),
-                menuPermits, Collections.emptyList());
+                permits, Collections.emptyList());
     }
 }

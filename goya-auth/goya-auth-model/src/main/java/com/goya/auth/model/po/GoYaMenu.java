@@ -69,23 +69,6 @@ public class GoYaMenu implements Serializable {
     @Column(name = "target")
     private String target;
 
-    /**
-     * 菜单类型（M目录 C菜单 F按钮）
-     */
-    @Column(name = "menu_type")
-    private String menuType;
-
-    /**
-     * 菜单状态（0显示 1隐藏）
-     */
-    @Column(name = "visible")
-    private String visible;
-
-    /**
-     * 是否刷新（0刷新 1不刷新）
-     */
-    @Column(name = "is_refresh")
-    private String isRefresh;
 
     /**
      * 权限标识

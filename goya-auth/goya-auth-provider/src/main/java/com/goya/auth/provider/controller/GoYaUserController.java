@@ -17,11 +17,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-public class GOYaUserController {
+public class GoYaUserController {
 
     private final UserService userService;
 
-    public GOYaUserController(UserService userService) {
+    public GoYaUserController(UserService userService) {
         this.userService = userService;
     }
 
