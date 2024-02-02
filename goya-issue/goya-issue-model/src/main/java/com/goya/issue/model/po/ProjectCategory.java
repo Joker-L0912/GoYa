@@ -1,5 +1,7 @@
 package com.goya.issue.model.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,6 +26,7 @@ import java.util.Objects;
         @UniqueConstraint(columnNames = "name", name = "name"),
 })
 @Comment("项目类别表")
+@JsonIgnoreProperties({"createTime", "updateTime", "createBy", "updateBy"})
 public class ProjectCategory extends BaseModel implements Serializable {
     /**
      * id
