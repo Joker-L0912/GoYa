@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                 // 开启跨域以便前端调用接口
                 .cors()
                 .and()
-                .authorizeHttpRequests().requestMatchers("/error").permitAll()
+                .authorizeHttpRequests().requestMatchers("/error", "/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 // 基于 token，不需要 session

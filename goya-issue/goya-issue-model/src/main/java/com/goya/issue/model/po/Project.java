@@ -5,17 +5,21 @@ import com.goya.auth.model.po.GoYaUser;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Comment;
+import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 /**
  * @author limoum0u
  * @date 23/10/18 21:31
  */
-@EqualsAndHashCode(callSuper = false)
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,7 +27,7 @@ import java.util.Set;
 @Table(name = "project", uniqueConstraints = {
         @UniqueConstraint(columnNames = "project_name", name = "project_name")
 })
-@org.hibernate.annotations.Table(appliesTo = "project", comment = "项目表")
+@Comment("项目表")
 public class Project extends BaseModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -62,14 +66,18 @@ public class Project extends BaseModel implements Serializable {
     /**
      * 项目类型
      */
-    @Column(name = "category", columnDefinition = "VARCHAR(50) COMMENT '项目类别'")
-    private String category;
+    @ManyToOne(targetEntity = ProjectCategory.class)
+    @JoinColumn(name = "category_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
+            ConstraintMode.NO_CONSTRAINT))
+    private ProjectCategory category;
 
     /**
      * 项目类别
      */
-    @Column(name = "type", columnDefinition = "VARCHAR(50) COMMENT '项目类型'")
-    private String type;
+    @ManyToOne(targetEntity = ProjectType.class)
+    @JoinColumn(name = "type_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "none", value =
+            ConstraintMode.NO_CONSTRAINT))
+    private ProjectType type;
 
     /**
      * 项目主管
@@ -95,5 +103,22 @@ public class Project extends BaseModel implements Serializable {
             joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")})
     @JsonIgnore
+    @ToString.Exclude
     private Set<GoYaUser> users;
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        Project project = (Project) o;
+        return getId() != null && Objects.equals(getId(), project.getId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
 }

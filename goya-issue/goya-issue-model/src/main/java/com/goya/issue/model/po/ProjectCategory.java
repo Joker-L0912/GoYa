@@ -3,23 +3,27 @@ package com.goya.issue.model.po;
 import com.goya.hibernate.model.po.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Comment;
+import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @author limoum0u
  * @date 23/11/9 16:20
  */
-@EqualsAndHashCode(callSuper = false)
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "project_category", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "name", name = "name")
+        @UniqueConstraint(columnNames = "name", name = "name"),
 })
-@org.hibernate.annotations.Table(appliesTo = "project_category", comment = "项目类别表")
+@Comment("项目类别表")
 public class ProjectCategory extends BaseModel implements Serializable {
     /**
      * id
@@ -38,4 +42,20 @@ public class ProjectCategory extends BaseModel implements Serializable {
      */
     @Column(name = "status", columnDefinition = "VARCHAR(10) COMMENT '状态 0 可用 1 不可用'")
     private String status;
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        ProjectCategory that = (ProjectCategory) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
 }
